@@ -91,7 +91,7 @@ map k gk
 set laststatus=2
 
 " Format the status line
-set statusline=%r%{getcwd()}%h\ \ \ Line:\ %l
+set statusline=%r%{resolve(expand('%:p'))}%h\ \ \ Line:\ %l
 
 function! InsertTabWrapper()
       let col = col('.') - 1
