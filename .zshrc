@@ -145,7 +145,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 ###
 
 ### python PyEnv
-export PATH="/Users/markdz/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+export PATH="$HOME/.bin:$PATH"
 ###
