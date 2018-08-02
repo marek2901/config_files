@@ -149,3 +149,7 @@ if which pyenv > /dev/null; then eval "$(pyenv init - --no-rehash)"; fi
 if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 export PATH="$HOME/.bin:$PATH"
 ###
+
+### nodejs NodEnv
+if which nodenv > /dev/null; then eval "$(nodenv init -)"; fi
+####
