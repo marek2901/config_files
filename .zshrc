@@ -84,17 +84,15 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-
+########## GENERIC ALIASES
 alias reload-shell=". ~/.zshrc"
 
 alias ll='ls -lF'
 alias la='ls -A'
 alias l='ls -CF'
+########## GENERIC ALIASES END
 
 ########## GIT ALIASES
-
 alias gs='git status '
 alias ga='git add '
 alias gb='git branch '
@@ -105,22 +103,19 @@ alias gl='git log '
 alias gpl='git pull '
 #alias gk='gitk --all&'
 #alias gx='gitx --all'
-
 alias got='git '
 alias get='git '
-
-########## END OF GIT ALIASES
+########## GIT ALIASES END
 
 ########## WORKAROUNDS
-#
 zle -N zle-line-init
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
 export LESS='-R'
-#
-#####################
+########## WORKAROUNDS END
+
 # FUNCTIONS
 man() {
     env \
@@ -133,15 +128,27 @@ man() {
     LESS_TERMCAP_us=$(printf "\e[1;32m") \
     man "$@"
 } # COLORS IN MAN
-
 ####### FUNCTIONS END
 
-#### KIEX
-test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
+### Ruby RVM
+if test -d "$HOME/.rvm/bin"
+then
+    export PATH="$PATH:$HOME/.rvm/bin"
+fi
+###
+
+### KIEX
+if test -s "$HOME/.kiex/scripts/kiex"
+then
+    source "$HOME/.kiex/scripts/kiex"
+fi
 ###
 
 ### rust Cargo
-export PATH="$HOME/.cargo/bin:$PATH"
+if test -d "$HOME/.cargo/bin"
+then
+    export PATH="$HOME/.cargo/bin:$PATH"
+fi
 ###
 
 ### python PyEnv
