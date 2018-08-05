@@ -114,6 +114,11 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
 export LESS='-R'
+
+if test -d "$HOME/.bin"
+then
+    export PATH="$HOME/.bin:$PATH"
+fi
 ########## WORKAROUNDS END
 
 # FUNCTIONS
@@ -154,7 +159,6 @@ fi
 ### python PyEnv
 if which pyenv > /dev/null; then eval "$(pyenv init - --no-rehash)"; fi
 if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
-export PATH="$HOME/.bin:$PATH"
 ###
 
 ### nodejs NodEnv
