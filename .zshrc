@@ -51,7 +51,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git ruby rvm pyenv brew npm bundler docker gem osx tmux vagrant)
+plugins=(git ruby pyenv brew npm bundler docker gem osx vagrant)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -154,6 +154,10 @@ if test -d "$HOME/.cargo/bin"
 then
     export PATH="$HOME/.cargo/bin:$PATH"
 fi
+###
+
+### ruby Rbenv
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 ###
 
 ### python PyEnv
