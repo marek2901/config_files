@@ -135,7 +135,7 @@ man() {
 } # COLORS IN MAN
 ####### FUNCTIONS END
 
-### Ruby RVM
+### Ruby RVM ### DEPRECATED
 if test -d "$HOME/.rvm/bin"
 then
     export PATH="$PATH:$HOME/.rvm/bin"
