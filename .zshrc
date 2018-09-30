@@ -138,6 +138,7 @@ man() {
 ### Ruby RVM ### DEPRECATED
 if test -d "$HOME/.rvm/bin"
 then
+    echo 'RVM is deprecated please use rbenv instead'
     export PATH="$PATH:$HOME/.rvm/bin"
 fi
 ###
