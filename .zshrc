@@ -44,6 +44,13 @@ then
 fi
 ########## WORKAROUNDS END
 
+########## LOCAL OVERRIDES
+if test -s "$HOME/.zshrc.secret"
+then
+    source "$HOME/.zshrc.secret"
+fi
+########## LOCAL OVERRIDES END
+
 # FUNCTIONS
 man() {
     env \
