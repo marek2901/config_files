@@ -37,6 +37,7 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
 export LESS='-R'
+export GIT_INTERNAL_GETTEXT_TEST_FALLBACKS=1
 
 if test -d "$HOME/.bin"
 then
