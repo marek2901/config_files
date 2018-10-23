@@ -48,7 +48,13 @@ fi
 ########## LOCAL OVERRIDES
 if test -s "$HOME/.zshrc.secret"
 then
+    ## STORE ENV VARS HERE
     source "$HOME/.zshrc.secret"
+fi
+if test -s "$HOME/.zshrc.local"
+then
+    ## STORE MACHINE SPECIFIC SETUP HERE
+    source "$HOME/.zshrc.local"
 fi
 ########## LOCAL OVERRIDES END
 
