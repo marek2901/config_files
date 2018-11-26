@@ -32,6 +32,10 @@ alias got='git '
 alias get='git '
 ########## GIT ALIASES END
 
+########## OPTIONS
+export EDITOR='vim'
+########## OPTIONS END
+
 ########## WORKAROUNDS
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
