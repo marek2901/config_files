@@ -20,7 +20,7 @@ set ruler
 " Ignore case when searching
 set ignorecase
 
-" When searching try to be smart about cases 
+" When searching try to be smart about cases
 set smartcase
 
 " Highlight search results
@@ -28,6 +28,10 @@ set hlsearch
 
 " Show matching brackets when text indicator is over them
 set showmatch
+
+" Show whitespaces
+set list
+set listchars=tab:→\ ,space:·,nbsp:␣,trail:•,eol:¬,precedes:«,extends:»
 
 syntax enable
 
