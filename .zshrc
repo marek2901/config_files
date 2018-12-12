@@ -47,6 +47,14 @@ if test -d "$HOME/.bin"
 then
     export PATH="$HOME/.bin:$PATH"
 fi
+
+if [[ -d ~/.zsh-completions ]]
+then
+    fpath=(~/.zsh-completions $fpath)
+fi
+# TO RELOAD COMPLETEIONS TYPE:
+# autoload -Uz compinit && compinit -i
+
 ########## WORKAROUNDS END
 
 ########## LOCAL OVERRIDES
