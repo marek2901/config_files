@@ -111,8 +111,19 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 ###
 
 ### python PyEnv
-if which pyenv > /dev/null; then eval "$(pyenv init - --no-rehash)"; fi
-if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+if [[ -d  "$HOME/.pyenv/bin" ]]
+then
+    export PATH="$HOME/.pyenv/bin:$PATH"
+fi
+if which pyenv > /dev/null
+then
+    eval "$(pyenv init - --no-rehash)"
+fi
+if [[ -s "$HOME/.pyenv/plugins/pyenv-virtualenv/bin/pyenv-virtualenv-init" ]] ||
+    which pyenv-virtualenv-init > /dev/null
+then
+    eval "$(pyenv virtualenv-init -)"
+fi
 ###
 
 ### nodejs NodEnv
