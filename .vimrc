@@ -31,7 +31,7 @@ set showmatch
 
 " Show whitespaces
 set list
-set listchars=tab:→\ ,nbsp:␣,trail:•,eol:¬,precedes:«,extends:»
+set listchars=tab:→\ ,nbsp:␣,trail:•,precedes:«,extends:»
 
 syntax enable
 
