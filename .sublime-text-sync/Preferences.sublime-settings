@@ -1,0 +1,16 @@
+{
+	"always_show_minimap_viewport": true,
+	"ensure_newline_at_eof_on_save": true,
+	"hot_exit": false,
+	"ignored_packages":
+	[
+		"Six",
+		"Vintage",
+		"Vintageous"
+	],
+	"remember_open_files": false,
+	"tab_size": 2,
+	"theme": "Adaptive.sublime-theme",
+	"translate_tabs_to_spaces": true,
+	"trim_trailing_white_space_on_save": true
+}
