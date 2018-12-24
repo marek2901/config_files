@@ -1,7 +1,6 @@
 # YADM config files
 
-## [YADM](https://thelocehiliosan.github.io/yadm)
-
+### [YADM](https://thelocehiliosan.github.io/yadm)
 Yet another dotfiles manager
 > Simple tool to store dotfiles on GitHub
 
