@@ -129,3 +129,16 @@ fi
 ### nodejs NodEnv
 if which nodenv > /dev/null; then eval "$(nodenv init -)"; fi
 ####
+
+### go GoEnv
+if [[ -d  "$HOME/.goenv" ]]
+then
+    export GOENV_ROOT="$HOME/.goenv"
+    [[ -d "$GOENV_ROOT/bin" ]] &&
+        export PATH="$GOENV_ROOT/bin:$PATH"
+fi
+if which goenv > /dev/null
+then
+    eval "$(goenv init -)"
+fi
+###
