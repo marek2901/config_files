@@ -1,5 +1,6 @@
 {
 	"always_show_minimap_viewport": true,
+	"draw_white_space": "all",
 	"ensure_newline_at_eof_on_save": true,
 	"hot_exit": false,
 	"ignored_packages":
@@ -12,6 +13,5 @@
 	"tab_size": 2,
 	"theme": "Adaptive.sublime-theme",
 	"translate_tabs_to_spaces": true,
-	"trim_trailing_white_space_on_save": true,
-	"draw_white_space": "all"
+	"trim_trailing_white_space_on_save": true
 }
