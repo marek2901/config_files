@@ -135,7 +135,7 @@ if [[ -d  "$HOME/.goenv" ]]
 then
     export GOENV_ROOT="$HOME/.goenv"
     [[ -d "$GOENV_ROOT/bin" ]] &&
-        export PATH="$GOENV_ROOT/bin:$PATH"
+      export PATH="$GOENV_ROOT/bin:$PATH"
 fi
 if which goenv > /dev/null
 then
