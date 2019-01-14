@@ -7,7 +7,7 @@ then
 fi
 
 ### Pyenv
-if [[ "$HOME/.pyenv/plugins/pyenv-update/bin/pyenv-update" ]]
+if [[ -s "$HOME/.pyenv/plugins/pyenv-update/bin/pyenv-update" ]]
 then
   pyenv update
 fi
