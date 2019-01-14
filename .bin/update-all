@@ -1,0 +1,13 @@
+#!/bin/sh
+
+### Homebrew
+if which brew > /dev/null 2>&1
+then
+  brew update && brew upgrade && brew cask upgrade && brew cleanup && brew doctor
+fi
+
+### Pyenv
+if [[ "$HOME/.pyenv/plugins/pyenv-update/bin/pyenv-update" ]]
+then
+  pyenv update
+fi
