@@ -11,3 +11,12 @@ if [[ -s "$HOME/.pyenv/plugins/pyenv-update/bin/pyenv-update" ]]
 then
   pyenv update
 fi
+
+### ZimFramework
+if [[ -d "$HOME/.zim" ]]
+then
+  (cd "$HOME/.zim" &&
+    git remote update -p &&
+    git merge --ff-only @{u} &&
+    git submodule update --init --recursive)
+fi
