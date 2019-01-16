@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 if [[ "$OSTYPE" != "darwin"* ]]
 then
   echo "Running brew not on mac? Y U DO DIS?"
