@@ -6,8 +6,16 @@ then
   brew update && brew upgrade && brew cask upgrade && brew cleanup && brew doctor
 fi
 
+### apt get
+if which apt > /dev/null 2>&1 && apt --version > /dev/null 2>&1
+then
+  sudo apt update
+  sudo apt upgrade
+fi
+
 ### Pyenv
-if [[ -s "$HOME/.pyenv/plugins/pyenv-update/bin/pyenv-update" ]]
+if [[ -s "$HOME/.pyenv/plugins/pyenv-update/bin/pyenv-update" ]] &&
+  which pyenv > /dev/null 2>&1
 then
   pyenv update
 fi
