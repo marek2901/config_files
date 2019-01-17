@@ -53,7 +53,7 @@ then
     fpath=(~/.zsh-completions $fpath)
 fi
 # TO RELOAD COMPLETEIONS TYPE:
-# autoload -Uz compinit && compinit -i
+alias refresh-completions="autoload -Uz compinit && compinit -i"
 
 ########## WORKAROUNDS END
 
