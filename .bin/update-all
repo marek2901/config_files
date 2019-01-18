@@ -1,16 +1,28 @@
 #!/bin/bash
 
-### Homebrew
-if which brew > /dev/null 2>&1 && brew --version > /dev/null 2>&1
+if [[ "$OSTYPE" == "darwin"* ]]
 then
-  brew update && brew upgrade && brew cask upgrade && brew cleanup && brew doctor
-fi
+  ### Homebrew
+  if which brew > /dev/null 2>&1 && brew --version > /dev/null 2>&1
+  then
+    brew update && brew upgrade && brew cask upgrade && brew cleanup && brew doctor
+  fi
+elif [[ "$OSTYPE" == "linux-gnu" ]]; then
+  ### apt get
+  if which apt > /dev/null 2>&1 && apt --version > /dev/null 2>&1
+  then
+    sudo apt update
+    sudo apt upgrade -y
+  fi
 
-### apt get
-if which apt > /dev/null 2>&1 && apt --version > /dev/null 2>&1
-then
-  sudo apt update
-  sudo apt upgrade -y
+  ### yum or dnf
+  if which dnf > /dev/null 2>&1 && dnf --version > /dev/null 2>&1
+  then
+    sudo dnf upgrade -y
+  elif which yum > /dev/null 2>&1 && yum --version > /dev/null 2>&1
+  then
+    sudo yum update -y
+  fi
 fi
 
 ### Pyenv
