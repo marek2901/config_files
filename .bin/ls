@@ -1,0 +1,10 @@
+#!/bin/bash
+
+## WARNING
+## THIS IS WORKAROUND
+## ALSO CHMOD IS BROKEN
+if [[ -x "/usr/local/bin/gls" ]]; then
+  /usr/local/bin/gls "$@"
+else
+  /bin/ls "$@"
+fi
