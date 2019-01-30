@@ -1,11 +1,6 @@
 ########## ZIM FRAMEWORK
 export ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
 
-if which brew > /dev/null 2>&1 &&
-  [[ -d "$(brew --prefix)/opt/coreutils/libexec/gnubin" ]]; then
-  export PATH="$(brew --prefix)/opt/coreutils/libexec/gnubin:$PATH"
-fi
-
 if test -s ${ZIM_HOME}/init.zsh
 then
     source ${ZIM_HOME}/init.zsh

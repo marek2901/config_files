@@ -1,7 +1,7 @@
 zmodules=(directory environment git git-info history input utility custom \
           prompt completion syntax-highlighting history-substring-search )
 
-zprompt_theme='gitster'
+zprompt_theme='minimal'
 ztermtitle='%n@%m:%~'
 zinput_mode='emacs'
 zhighlighters=(main brackets cursor)
