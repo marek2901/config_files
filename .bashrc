@@ -7,4 +7,4 @@ fi
 
 alias g="git "
 
-source "$HOME/.shellrc-common"
+source "$HOME/.shellrc-common.sh"

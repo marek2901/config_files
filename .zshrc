@@ -37,4 +37,4 @@ then
 fi
 ########## LOCAL OVERRIDES END
 
-source "$HOME/.shellrc-common"
+source "$HOME/.shellrc-common.sh"
