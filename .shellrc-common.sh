@@ -28,8 +28,7 @@ export LANG=en_US.UTF-8
 export LESS='-R'
 export GIT_INTERNAL_GETTEXT_TEST_FALLBACKS=1
 
-if test -d "$HOME/.bin"
-then
+if test -d "$HOME/.bin"; then
     export PATH="$HOME/.bin:$PATH"
 fi
 ########## WORKAROUNDS END
@@ -49,60 +48,52 @@ man() {
 ####### FUNCTIONS END
 
 ### Ruby RVM ### DEPRECATED
-if test -d "$HOME/.rvm/bin"
-then
+if test -d "$HOME/.rvm/bin"; then
     echo 'RVM is deprecated please use rbenv instead'
     export PATH="$PATH:$HOME/.rvm/bin"
 fi
 ###
 
 ### KIEX
-if test -s "$HOME/.kiex/scripts/kiex"
-then
+if test -s "$HOME/.kiex/scripts/kiex"; then
     source "$HOME/.kiex/scripts/kiex"
 fi
 ###
 
 ### rust Cargo
-if test -d "$HOME/.cargo/bin"
-then
+if test -d "$HOME/.cargo/bin"; then
     export PATH="$HOME/.cargo/bin:$PATH"
 fi
 ###
 
 ### ruby Rbenv
-if which rbenv > /dev/null 2>&1; then eval "$(rbenv init -)"; fi
+if which rbenv &> /dev/null; then eval "$(rbenv init -)"; fi
 ###
 
 ### python PyEnv
-if [[ -d  "$HOME/.pyenv/bin" ]]
-then
+if [[ -d  "$HOME/.pyenv/bin" ]]; then
     export PATH="$HOME/.pyenv/bin:$PATH"
 fi
-if which pyenv > /dev/null 2>&1
-then
+if which pyenv &> /dev/null; then
     eval "$(pyenv init - --no-rehash)"
 fi
 if [[ -s "$HOME/.pyenv/plugins/pyenv-virtualenv/bin/pyenv-virtualenv-init" ]] ||
-    which pyenv-virtualenv-init > /dev/null 2>&1
-then
+    which pyenv-virtualenv-init &> /dev/null; then
     eval "$(pyenv virtualenv-init -)"
 fi
 ###
 
 ### nodejs NodEnv
-if which nodenv > /dev/null 2>&1; then eval "$(nodenv init -)"; fi
+if which nodenv &> /dev/null; then eval "$(nodenv init -)"; fi
 ####
 
 ### go GoEnv
-if [[ -d  "$HOME/.goenv" ]]
-then
+if [[ -d  "$HOME/.goenv" ]]; then
     export GOENV_ROOT="$HOME/.goenv"
     [[ -d "$GOENV_ROOT/bin" ]] &&
       export PATH="$GOENV_ROOT/bin:$PATH"
 fi
-if which goenv > /dev/null 2>&1
-then
+if which goenv &> /dev/null; then
     eval "$(goenv init -)"
 fi
 ###
