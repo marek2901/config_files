@@ -1,42 +1,40 @@
 #!/bin/bash
 
-if [[ "$OSTYPE" == "darwin"* ]]
-then
+if [[ "$OSTYPE" == "darwin"* ]]; then
   ### Homebrew
-  if which brew > /dev/null 2>&1 && brew --version > /dev/null 2>&1
-  then
+  if which brew &> /dev/null && brew --version &> /dev/null; then
     brew update && brew upgrade && brew cask upgrade && brew cleanup && brew doctor
   fi
 elif [[ "$OSTYPE" == "linux-gnu" ]]; then
   ### apt get
-  if which apt > /dev/null 2>&1 && apt --version > /dev/null 2>&1
-  then
+  if which apt &> /dev/null && apt --version &> /dev/null; then
     sudo apt update
     sudo apt upgrade -y
   fi
 
   ### yum or dnf
-  if which dnf > /dev/null 2>&1 && dnf --version > /dev/null 2>&1
-  then
+  if which dnf &> /dev/null && dnf --version &> /dev/null; then
     sudo dnf upgrade -y
-  elif which yum > /dev/null 2>&1 && yum --version > /dev/null 2>&1
-  then
+  elif which yum &> /dev/null && yum --version &> /dev/null; then
     sudo yum update -y
   fi
 fi
 
 ### Pyenv
 if [[ -s "$HOME/.pyenv/plugins/pyenv-update/bin/pyenv-update" ]] &&
-  which pyenv > /dev/null 2>&1
-then
+  which pyenv &> /dev/null; then
   pyenv update
 fi
 
 ### ZimFramework
-if [[ -d "$HOME/.zim" ]]
-then
+if [[ -d "$HOME/.zim" ]]; then
   (cd "$HOME/.zim" &&
     git remote update -p &&
     git merge --ff-only @{u} &&
     git submodule update --init --recursive)
+fi
+
+### Yadm
+if which yadm &> /dev/null; then
+  yadm pull origin master
 fi
