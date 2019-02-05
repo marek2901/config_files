@@ -5,4 +5,6 @@ else
   export PS1='[`if [ $? = 0 ]; then echo "v"; else echo "x"; fi`]-\u@\h:[\W]:\\$ '
 fi
 
+alias g="git "
+
 source "$HOME/.shellrc-common"
