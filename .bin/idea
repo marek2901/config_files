@@ -4,12 +4,12 @@
 function getCurrentsFileAbsPath() {
   file_source="${BASH_SOURCE[0]}"
   while [ -h "$source" ]; do
-    curr_dir="$( cd -P "$( dirname "$file_source" )" >/dev/null 2>&1 && pwd )"
+    curr_dir="$( cd -P "$( dirname "$file_source" )" &> /dev/null && pwd )"
     file_source="$(readlink "$file_source")"
   # locate relative path to symlink if it is a symlink
   [[ $file_source != /* ]] && file_source="$curr_dir/$file_source"
   done
-  echo "$( cd -P "$( dirname "$file_source" )" >/dev/null 2>&1 && pwd )"
+  echo "$( cd -P "$( dirname "$file_source" )" &> /dev/null && pwd )"
 }
 
 
