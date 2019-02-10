@@ -28,6 +28,12 @@ export LANG=en_US.UTF-8
 export LESS='-R'
 export GIT_INTERNAL_GETTEXT_TEST_FALLBACKS=1
 
+### Pipsi or pipx binaries
+if test -d "$HOME/.local/bin"; then
+  export PATH="$HOME/.local/bin:$PATH"
+fi
+
+### User added script/bin files
 if test -d "$HOME/.bin"; then
     export PATH="$HOME/.bin:$PATH"
 fi
