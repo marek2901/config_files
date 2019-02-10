@@ -26,6 +26,11 @@ if [[ -s "$HOME/.pyenv/plugins/pyenv-update/bin/pyenv-update" ]] &&
   pyenv update
 fi
 
+### pipx
+if which pipx &> /dev/null && pipx --version &> /dev/null; then
+  pipx upgrade-all
+fi
+
 ### ZimFramework
 if [[ -d "$HOME/.zim" ]]; then
   (cd "$HOME/.zim" &&
