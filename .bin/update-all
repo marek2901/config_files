@@ -3,7 +3,11 @@
 if [[ "$OSTYPE" == "darwin"* ]]; then
   ### Homebrew
   if which brew &> /dev/null && brew --version &> /dev/null; then
-    brew update && brew upgrade && brew cask upgrade && brew cleanup && brew doctor
+    brew update
+    if brew outdated -q | grep -E "^python$" &> /dev/null; then
+      TRIGGER_PIPX_REINSTALL="true"
+    fi
+    brew upgrade && brew cask upgrade && brew cleanup && brew doctor
   fi
 elif [[ "$OSTYPE" == "linux-gnu" ]]; then
   ### apt get
@@ -28,6 +32,9 @@ fi
 
 ### pipx
 if which pipx &> /dev/null && pipx --version &> /dev/null; then
+  if [[ "$TRIGGER_PIPX_REINSTALL" == "true" ]]; then
+    pipx reinstall-all python3
+  fi
   pipx upgrade-all
 fi
 
