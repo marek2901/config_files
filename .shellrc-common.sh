@@ -103,9 +103,3 @@ if which goenv &> /dev/null; then
     eval "$(goenv init -)"
 fi
 ###
-
-### Direnv
-if which direnv &> /dev/null; then
-  eval "$(direnv hook zsh)"
-fi
-###
