@@ -7,6 +7,11 @@ elif; then
     echo "install zim https://github.com/zimfw/zimfw"
     return 1
 fi
+### Zim workarounds
+if which zstyle &> /dev/null; then
+  zstyle ':zim:git-info:clean' format '%F{green}✓'
+  zstyle ':zim:git-info:dirty' format '%F{yellow}✓'
+fi
 ########## ZIM FRAMEWORK END
 
 ########## GENERIC ALIASES
