@@ -37,6 +37,11 @@ fi
 if test -d "$HOME/.bin"; then
     export PATH="$HOME/.bin:$PATH"
 fi
+
+### homebrew path modifications
+if [[ "$OSTYPE" == "darwin"* ]] && test -d "/usr/local/sbin"; then
+  export PATH="/usr/local/sbin:$PATH"
+fi
 ########## WORKAROUNDS END
 
 # FUNCTIONS
