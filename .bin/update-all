@@ -50,3 +50,8 @@ fi
 if which yadm &> /dev/null; then
   yadm pull origin master
 fi
+
+### tldr doc util
+if which tldr &> /dev/null; then
+  tldr --update
+fi
