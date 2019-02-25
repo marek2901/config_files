@@ -117,3 +117,6 @@ inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 command! -bang -range=% -complete=file -nargs=* W <line1>,<line2>write<bang> <args>
 command! -bang Q quit<bang>
 
+" :find command autocomlete and recursion
+set path+=**
+set wildmenu
