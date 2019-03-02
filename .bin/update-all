@@ -1,57 +1,77 @@
 #!/bin/bash
 
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  ### Homebrew
-  if which brew &> /dev/null && brew --version &> /dev/null; then
-    brew update
-    if brew outdated -q | grep -E "^python$" &> /dev/null; then
-      TRIGGER_PIPX_REINSTALL="true"
+SCRIPT_SRC="${BASH_SOURCE[0]}"
+SCRIPTPATH=$(dirname "$SCRIPT_SRC")
+SCRIPTNAME="$0"
+
+self_update() {
+  ### Yadm
+  if which yadm &> /dev/null; then
+    if [[ "$(yadm rev-parse HEAD)" = "$(yadm ls-remote origin master | cut -f1)" ]]; then
+      echo "YADM already at the latest version."
+    else
+      cd $SCRIPTPATH
+      echo "Found a new version of YADM, updating..."
+      yadm pull origin master
+      exec "$SCRIPTNAME" "$@"
+      # Now exit this old instance
+      exit 1
     fi
-    brew upgrade && brew cask upgrade && brew cleanup && brew doctor
   fi
-elif [[ "$OSTYPE" == "linux-gnu" ]]; then
-  ### apt get
-  if which apt &> /dev/null && apt --version &> /dev/null; then
-    sudo apt update
-    sudo apt upgrade -y
+}
+
+main() {
+  if [[ "$OSTYPE" == "darwin"* ]]; then
+    ### Homebrew
+    if which brew &> /dev/null && brew --version &> /dev/null; then
+      brew update
+      if brew outdated -q | grep -E "^python$" &> /dev/null; then
+        TRIGGER_PIPX_REINSTALL="true"
+      fi
+      brew upgrade && brew cask upgrade && brew cleanup && brew doctor
+    fi
+  elif [[ "$OSTYPE" == "linux-gnu" ]]; then
+    ### apt get
+    if which apt &> /dev/null && apt --version &> /dev/null; then
+      sudo apt update
+      sudo apt upgrade -y
+    fi
+
+    ### yum or dnf
+    if which dnf &> /dev/null && dnf --version &> /dev/null; then
+      sudo dnf upgrade -y
+    elif which yum &> /dev/null && yum --version &> /dev/null; then
+      sudo yum update -y
+    fi
   fi
 
-  ### yum or dnf
-  if which dnf &> /dev/null && dnf --version &> /dev/null; then
-    sudo dnf upgrade -y
-  elif which yum &> /dev/null && yum --version &> /dev/null; then
-    sudo yum update -y
+  ### Pyenv
+  if [[ -s "$HOME/.pyenv/plugins/pyenv-update/bin/pyenv-update" ]] &&
+    which pyenv &> /dev/null; then
+    pyenv update
   fi
-fi
 
-### Pyenv
-if [[ -s "$HOME/.pyenv/plugins/pyenv-update/bin/pyenv-update" ]] &&
-  which pyenv &> /dev/null; then
-  pyenv update
-fi
-
-### pipx
-if which pipx &> /dev/null && pipx --version &> /dev/null; then
-  if [[ "$TRIGGER_PIPX_REINSTALL" == "true" ]]; then
-    pipx reinstall-all python3
+  ### pipx
+  if which pipx &> /dev/null && pipx --version &> /dev/null; then
+    if [[ "$TRIGGER_PIPX_REINSTALL" == "true" ]]; then
+      pipx reinstall-all python3
+    fi
+    pipx upgrade-all
   fi
-  pipx upgrade-all
-fi
 
-### ZimFramework
-if [[ -d "$HOME/.zim" ]]; then
-  (cd "$HOME/.zim" &&
-    git remote update -p &&
-    git merge --ff-only @{u} &&
-    git submodule update --init --recursive)
-fi
+  ### ZimFramework
+  if [[ -d "$HOME/.zim" ]]; then
+    (cd "$HOME/.zim" &&
+      git remote update -p &&
+      git merge --ff-only @{u} &&
+      git submodule update --init --recursive)
+  fi
 
-### Yadm
-if which yadm &> /dev/null; then
-  yadm pull origin master
-fi
+  ### tldr doc util
+  if which tldr &> /dev/null; then
+    tldr --update
+  fi
+}
 
-### tldr doc util
-if which tldr &> /dev/null; then
-  tldr --update
-fi
+self_update
+main
