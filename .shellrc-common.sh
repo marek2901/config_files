@@ -58,13 +58,6 @@ man() {
 } # COLORS IN MAN
 ####### FUNCTIONS END
 
-### Ruby RVM ### DEPRECATED
-if test -d "$HOME/.rvm/bin"; then
-    echo 'RVM is deprecated please use rbenv instead'
-    export PATH="$PATH:$HOME/.rvm/bin"
-fi
-###
-
 ### KIEX
 if test -s "$HOME/.kiex/scripts/kiex"; then
     source "$HOME/.kiex/scripts/kiex"
@@ -100,7 +93,12 @@ fi
 ###
 
 ### nodejs NodEnv
-if which nodenv &> /dev/null; then eval "$(nodenv init -)"; fi
+if [[ -d  "$HOME/.nodenv/bin" ]]; then
+    export PATH="$HOME/.nodenv/bin:$PATH"
+fi
+if which nodenv &> /dev/null; then
+  eval "$(nodenv init -)";
+fi
 ####
 
 ### go GoEnv
