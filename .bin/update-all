@@ -7,7 +7,7 @@ SCRIPTNAME="$0"
 self_update() {
   ### Yadm
   if which yadm &> /dev/null; then
-    if [[ "$(yadm rev-parse HEAD)" = "$(yadm ls-remote origin master | cut -f1)" ]]; then
+    if [[ "$(yadm rev-parse origin/master)" = "$(yadm ls-remote origin master | cut -f1)" ]]; then
       echo "YADM already at the latest version."
     else
       cd $SCRIPTPATH
