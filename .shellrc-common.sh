@@ -2,6 +2,8 @@
 alias ll='ls -lF'
 alias la='ls -A'
 alias l='ls -CF'
+
+alias ifmyip4="ifconfig | grep -E 'inet\ \d+.*broadcast' | grep -Eo 'inet \d+\.\d+\.\d+\.\d+' | cat"
 ########## GENERIC ALIASES END
 
 ########## GIT ALIASES
