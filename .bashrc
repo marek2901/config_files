@@ -5,6 +5,7 @@ else
 fi
 
 alias g="git "
+alias ls="ls --color=auto"
 
 ########## LOCAL OVERRIDES
 if test -s "$HOME/.bashrc.secret"; then
