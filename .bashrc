@@ -1,11 +1,58 @@
 if tput colors &> /dev/null; then
-  export PS1='\[\033[38;5;40m\][\[\033[38;5;9m\]`if [ $? = 0 ]; then echo "\[\033[01;32m\]ツ"; else echo "\[\033[01;31m\]✗"; fi`\[\033[38;5;40m\]]\[\033[38;5;14m\]-\[\033[38;5;83m\]\u\[\033[38;5;12m\]@\[\033[38;5;39m\]\h\[\033[38;5;15m\]:\[\033[38;5;6m\][\[\033[38;5;14m\]\W\[\033[38;5;6m\]]:\[\033[38;5;40m\]\\$\033[0m '
+  BLACK='\[\e[0;30m\]'
+  BBLACK='\[\e[1;30m\]'
+  BGBLACK='\[\e[40m\]'
+  RED='\[\e[0;31m\]'
+  BRED='\[\e[1;31m\]'
+  BGRED='\[\e[41m\]'
+  GREEN='\[\e[0;32m\]'
+  BGREEN='\[\e[1;32m\]'
+  BGGREEN='\[\e[1;32m\]'
+  YELLOW='\[\e[0;33m\]'
+  BYELLOW='\[\e[1;33m\]'
+  BGYELLOW='\[\e[1;33m\]'
+  BLUE='\[\e[0;34m\]'
+  BBLUE='\[\e[1;34m\]'
+  BGBLUE='\[\e[1;34m\]'
+  MAGENTA='\[\e[0;35m\]'
+  BMAGENTA='\[\e[1;35m\]'
+  BGMAGENTA='\[\e[1;35m\]'
+  CYAN='\[\e[0;36m\]'
+  BCYAN='\[\e[1;36m\]'
+  BGCYAN='\[\e[1;36m\]'
+  WHITE='\[\e[0;37m\]'
+  BWHITE='\[\e[1;37m\]'
+  BGWHITE='\[\e[1;37m\]'
+
+  PROMPT_COMMAND=smile_prompt
+
+  function smile_prompt
+  {
+    if [ "$?" -eq "0" ]
+    then
+    SC="${GREEN}:)"
+    else
+    SC="${RED}:("
+    fi
+    if [ $UID -eq 0 ]
+    then
+    UC="${RED}"
+    else
+    UC="${BWHITE}"
+    fi
+    HC="${BYELLOW}"
+    RC="${BWHITE}"
+    DF='\[\e[0m\]'
+    PS1="[${UC}\u${RC}@${HC}\h ${RC}\W${DF}] ${SC}${DF} "
+  }
 else
   export PS1='[`if [ $? = 0 ]; then echo "v"; else echo "x"; fi`]-\u@\h:[\W]:\\$ '
 fi
 
 alias g="git "
-alias ls="ls --color=auto"
+if [[ "$OSTYPE" != "darwin"* ]]; then
+  alias ls="ls --color=auto"
+fi
 
 ########## LOCAL OVERRIDES
 if test -s "$HOME/.bashrc.secret"; then
