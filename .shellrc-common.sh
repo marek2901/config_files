@@ -31,7 +31,7 @@ export EDITOR='vim'
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-export LESS='-R'
+export LESS='-RI'
 export GIT_INTERNAL_GETTEXT_TEST_FALLBACKS=1
 
 ### Pipsi or pipx binaries
