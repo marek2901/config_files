@@ -4,6 +4,10 @@ alias la='ls -A'
 alias l='ls -CF'
 
 alias ifmyip4="ifconfig | grep -E 'inet\ \d+.*broadcast' | grep -Eo 'inet \d+\.\d+\.\d+\.\d+' | cat"
+
+if which mitmproxy &> /dev/null; then
+  alias mitmproxy="mitmproxy --set console_mouse=false "
+fi
 ########## GENERIC ALIASES END
 
 ########## GIT ALIASES
