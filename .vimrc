@@ -14,6 +14,9 @@ filetype indent on
 " Set to auto read when a file is changed from the outside
 set autoread
 
+" I do sometimes use backspace :(
+set backspace=indent,eol,start
+
 " Show line numbers
 set nu
 
