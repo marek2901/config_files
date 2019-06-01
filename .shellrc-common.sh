@@ -36,10 +36,9 @@ export GIT_INTERNAL_GETTEXT_TEST_FALLBACKS=1
 
 ### ssh-agent subshell
 function ssshell() {
-  _exitsshellfunc="function exitsshell(){ pkill ssh-agent; return 0 };"
-  _ssh_add_and_trap="ssh-add && trap exitsshell EXIT"
+  _ssh_add_and_trap="ssh-add && trap \"ssh-agent -k\" EXIT"
   _sssh_prompt="&& export PS1=\"(sec-ssh) $PS1\""
-  ssh-agent $SHELL -c "exec env POST_ZSHRC_RUN='$_exitsshellfunc $_ssh_add_and_trap $_sssh_prompt' $SHELL"
+  ssh-agent $SHELL -c "exec env POST_ZSHRC_RUN='$_ssh_add_and_trap $_sssh_prompt' $SHELL"
 }
 
 ### Pipsi or pipx binaries
