@@ -46,6 +46,18 @@ if test -d "$HOME/.bin"; then
     export PATH="$HOME/.bin:$PATH"
 fi
 
+### use ssh-add automatically with 20 minutes expiration
+sshishcommands=(ssh git)
+if which yadm &> /dev/null; then
+  sshishcommands=(${sshishcommands[@]} yadm)
+fi
+if which sshuttle &> /dev/null; then
+  sshishcommands=(${sshishcommands[@]} sshuttle)
+fi
+for sshishcommand in $sshishcommands; do
+  alias $sshishcommand="(ssh-add -L &> /dev/null || ssh-add); $sshishcommand"
+done
+
 ### homebrew path modifications
 if [[ "$OSTYPE" == "darwin"* ]] && test -d "/usr/local/sbin"; then
   export PATH="/usr/local/sbin:$PATH"
