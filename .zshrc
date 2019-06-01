@@ -37,4 +37,13 @@ if test -s "$HOME/.zshrc.local"; then
 fi
 ########## LOCAL OVERRIDES END
 
+########## EDIT CURRENT LINE IN VIM
+autoload -U edit-command-line
+zle -N edit-command-line
+# Type ctrl+x and ctrl+e sequentially
+bindkey '^x^e' edit-command-line
+# Type ctrl+x and e sequentially
+bindkey '^xe' edit-command-line
+########## EDIT CURRENT LINE IN VIM END
+
 source "$HOME/.shellrc-common.sh"
