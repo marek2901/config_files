@@ -9,7 +9,7 @@ if which mitmproxy &> /dev/null; then
   alias mitmproxy="mitmproxy --set console_mouse=false "
 fi
 
-alias ssh-add="ssh-add -t 2m "
+alias ssh-add="ssh-add -t 20m "
 ########## GENERIC ALIASES END
 
 ########## GIT ALIASES
