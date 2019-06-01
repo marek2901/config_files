@@ -8,6 +8,8 @@ alias ifmyip4="ifconfig | grep -E 'inet\ \d+.*broadcast' | grep -Eo 'inet \d+\.\
 if which mitmproxy &> /dev/null; then
   alias mitmproxy="mitmproxy --set console_mouse=false "
 fi
+
+alias ssh-add="ssh-add -t 2m "
 ########## GENERIC ALIASES END
 
 ########## GIT ALIASES
