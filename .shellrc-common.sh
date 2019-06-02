@@ -34,13 +34,6 @@ export LANG=en_US.UTF-8
 export LESS='-RI'
 export GIT_INTERNAL_GETTEXT_TEST_FALLBACKS=1
 
-### ssh-agent subshell
-function ssshell() {
-  _ssh_add_and_trap="ssh-add && trap \"ssh-agent -k\" EXIT"
-  _sssh_prompt="&& export PS1=\"(sec-ssh) $PS1\""
-  ssh-agent $SHELL -c "exec env POST_ZSHRC_RUN='$_ssh_add_and_trap $_sssh_prompt' $SHELL"
-}
-
 ### Pipsi or pipx binaries
 if test -d "$HOME/.local/bin"; then
   export PATH="$HOME/.local/bin:$PATH"
@@ -55,7 +48,6 @@ fi
 if [[ "$OSTYPE" == "darwin"* ]] && test -d "/usr/local/sbin"; then
   export PATH="/usr/local/sbin:$PATH"
 fi
-_additional_commands="base64 -D <(echo 'ZXZhbCAkUE9TVF9aU0hSQ19SVU4K')"
 ########## WORKAROUNDS END
 
 # FUNCTIONS
@@ -125,5 +117,3 @@ if which goenv &> /dev/null; then
     eval "$(goenv init -)"
 fi
 ###
-
-source <(eval $_additional_commands)
