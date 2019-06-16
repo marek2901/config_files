@@ -4,10 +4,6 @@ alias la='ls -A'
 alias l='ls -CF'
 
 alias ifmyip4="ifconfig | grep -E 'inet\ \d+.*broadcast' | grep -Eo 'inet \d+\.\d+\.\d+\.\d+' | cat"
-
-if which mitmproxy &> /dev/null; then
-  alias mitmproxy="mitmproxy --set console_mouse=false "
-fi
 ########## GENERIC ALIASES END
 
 ########## GIT ALIASES
@@ -47,6 +43,11 @@ fi
 ### homebrew path modifications
 if [[ "$OSTYPE" == "darwin"* ]] && test -d "/usr/local/sbin"; then
   export PATH="/usr/local/sbin:$PATH"
+fi
+
+### I wanna copy paste in mitmproxy plz
+if which mitmproxy &> /dev/null; then
+  alias mitmproxy="mitmproxy --set console_mouse=false "
 fi
 ########## WORKAROUNDS END
 
