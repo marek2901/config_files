@@ -52,6 +52,10 @@ fi
 ########## WORKAROUNDS END
 
 # FUNCTIONS
+if which ag &> /dev/null; then
+  agr() { ag -0 -l "$1" | xargs -0 sed -i '' -e "s/$1/$2/g"; }
+fi
+
 man() {
     env \
     LESS_TERMCAP_mb=$(printf "\e[1;31m") \
