@@ -1,0 +1,21 @@
+#!/bin/bash
+
+## TODO move into shared functions or any other shared container once there is going to be one ;)
+function getCurrentsFileAbsPath() {
+  file_source="${BASH_SOURCE[0]}"
+  while [ -h "$source" ]; do
+    curr_dir="$( cd -P "$( dirname "$file_source" )" &> /dev/null && pwd )"
+    file_source="$(readlink "$file_source")"
+  # locate relative path to symlink if it is a symlink
+  [[ $file_source != /* ]] && file_source="$curr_dir/$file_source"
+  done
+  echo "$( cd -P "$( dirname "$file_source" )" &> /dev/null && pwd )"
+}
+
+
+if [[ "$OSTYPE" == "darwin"* ]] && ps aux | grep "IntelliJ IDEA.app" | grep -v grep &> /dev/null; then
+  open -a IntelliJ\ IDEA $@
+else
+  # Prevent recursion
+  /usr/bin/env PATH="${PATH//$(getCurrentsFileAbsPath):/}" idea $@
+fi
