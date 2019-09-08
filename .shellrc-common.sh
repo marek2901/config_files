@@ -49,6 +49,18 @@ fi
 if which mitmproxy &> /dev/null; then
   alias mitmproxy="mitmproxy --set console_mouse=false "
 fi
+
+### Poetry
+if which poetry &> /dev/null; then
+  poetryvenv() {
+    local poepypath=$(poetry run which python 2> /dev/null)
+    if [[ ! -z "$poepypath" ]]; then
+      . "$(dirname "$poepypath")/activate"
+    else
+      return 112
+    fi
+  }
+fi
 ########## WORKAROUNDS END
 
 # FUNCTIONS
