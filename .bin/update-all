@@ -54,7 +54,7 @@ main() {
   ### pipx
   if which pipx &> /dev/null && pipx --version &> /dev/null; then
     if [[ "$TRIGGER_PIPX_REINSTALL" == "true" ]]; then
-      pipx reinstall-all python3
+      ls ${PIPX_HOME:-~/.local/pipx}/venvs | while read line; do rm -r ${PIPX_HOME:-~/.local/pipx}/venvs/$line && pipx install $line; done
     fi
     pipx upgrade-all
   fi
