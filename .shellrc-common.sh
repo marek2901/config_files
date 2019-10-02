@@ -79,6 +79,29 @@ man() {
     LESS_TERMCAP_us=$(printf "\e[1;32m") \
     man "$@"
 } # COLORS IN MAN
+
+function relaxing_breathing() {
+  function mantra() {
+    if which lolcat &> /dev/null; then
+      echo -en "\r\033[K      $1" | lolcat -p .8
+    else
+      echo -en "\r\033[K      $1"
+    fi
+  }
+  function sleepcount() {
+    for i in {1..4}; do echo -en " $i" && sleep 1; done
+  }
+  while true; do
+    mantra "Breathe in"
+    sleepcount
+    mantra "Hold air in your lungs"
+    sleepcount
+    mantra "Exhale"
+    sleepcount
+    mantra "Hold your breath, lungs emptied"
+    sleepcount
+  done
+}
 ####### FUNCTIONS END
 
 ### KIEX
