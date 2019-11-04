@@ -4,6 +4,8 @@ alias la='ls -A'
 alias l='ls -CF'
 
 alias ifmyip4="ifconfig | grep -E 'inet\ \d+.*broadcast' | grep -Eo 'inet \d+\.\d+\.\d+\.\d+' | cat"
+
+alias reztart="exec $SHELL"
 ########## GENERIC ALIASES END
 
 ########## GIT ALIASES
