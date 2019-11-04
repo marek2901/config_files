@@ -5,7 +5,7 @@ alias l='ls -CF'
 
 alias ifmyip4="ifconfig | grep -E 'inet\ \d+.*broadcast' | grep -Eo 'inet \d+\.\d+\.\d+\.\d+' | cat"
 
-alias reztart="exec $SHELL"
+alias reztart="case '$-' in *i*) exec \$(echo \${0#'-'} | xargs which) ;; *) echo reztart only interactive shells ;; esac"
 ########## GENERIC ALIASES END
 
 ########## GIT ALIASES
