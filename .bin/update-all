@@ -61,10 +61,7 @@ main() {
 
   ### ZimFramework
   if [[ -d "$HOME/.zim" ]]; then
-    (cd "$HOME/.zim" &&
-      git remote update -p &&
-      git merge --ff-only @{u} &&
-      git submodule update --init --recursive)
+    zimfw upgrade && zimfw update
   fi
 
   ### tldr doc util
