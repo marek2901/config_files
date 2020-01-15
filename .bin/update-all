@@ -61,8 +61,8 @@ main() {
 
   ### ZimFramework
   if [[ -d "$HOME/.zim" ]]; then
-    source "$HOME/.zim/zimfw.zsh" upgrade
-    source "$HOME/.zim/zimfw.zsh" update
+    zsh -c "source \"$HOME/.zim/zimfw.zsh\" upgrade"
+    zsh -c "source \"$HOME/.zim/zimfw.zsh\" update"
   fi
 
   ### tldr doc util
