@@ -32,6 +32,8 @@ if which zstyle &> /dev/null; then
   zstyle ':zim:git-info:clean' format '%F{green}✓'
   zstyle ':zim:git-info:dirty' format '%F{yellow}✓'
 fi
+# I wanna lowercase g for git
+alias g='G '
 ########## ZIM FRAMEWORK END
 
 ########## GENERIC ALIASES
