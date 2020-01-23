@@ -85,10 +85,6 @@ au BufNewFile,BufRead *.py
 au BufNewFile,BufRead *.go
     \ set expandtab!
 
-" Linebreak on 500 characters
-set lbr
-set tw=500
-
 set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
