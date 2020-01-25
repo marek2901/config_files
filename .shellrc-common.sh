@@ -104,6 +104,12 @@ function relaxing_breathing() {
     sleepcount
   done
 }
+
+if which sshuttle &> /dev/null; then
+  function sshuttle-all() {
+    sshuttle --remote=$1 0.0.0.0/0 ::/0
+  }
+fi
 ####### FUNCTIONS END
 
 ### KIEX
