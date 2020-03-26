@@ -122,3 +122,10 @@ command! -bang Q quit<bang>
 " :find command autocomlete and recursion
 set path+=**
 set wildmenu
+
+" include machine specific vimrc
+try
+  source ~/.vimrc.local
+catch
+  " No file, no problem :D!
+endtry
