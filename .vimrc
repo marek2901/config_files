@@ -18,7 +18,7 @@ set autoread
 set backspace=indent,eol,start
 
 " Show line numbers
-set nu
+set number relativenumber
 
 "Always show current position
 set ruler
