@@ -43,6 +43,11 @@ main() {
     elif which yum &> /dev/null && yum --version &> /dev/null; then
       sudo yum update -y
     fi
+
+    ### snap
+    if which snap &> /dev/null && snap --version &> /dev/null; then
+      sudo snap refresh
+    fi
   fi
 
   ### Pyenv
