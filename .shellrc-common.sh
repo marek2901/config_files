@@ -110,6 +110,14 @@ if which sshuttle &> /dev/null; then
     sshuttle --remote=$1 0.0.0.0/0 ::/0
   }
 fi
+
+if which emacs &> /dev/null &&
+    test -d "$HOME/.emacs.d/" &&
+    test -f "$HOME/.spacemacs"; then
+  function spacemacs() {
+    emacs $@ &
+  }
+fi
 ####### FUNCTIONS END
 
 ### KIEX
