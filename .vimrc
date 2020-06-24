@@ -123,6 +123,9 @@ command! -bang Q quit<bang>
 set path+=**
 set wildmenu
 
+" Never need 'Ex mode'
+nnoremap Q <NOP>
+
 " include machine specific vimrc
 try
   source ~/.vimrc.local
