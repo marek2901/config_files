@@ -35,6 +35,7 @@ main() {
     if which apt &> /dev/null && apt --version &> /dev/null; then
       sudo apt update
       sudo apt upgrade -y
+      sudo apt autoremove
     fi
 
     ### yum or dnf
