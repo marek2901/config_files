@@ -6,6 +6,15 @@ alias l='ls -CF'
 alias ifmyip4="ifconfig | grep -E 'inet\ \d+.*broadcast' | grep -Eo 'inet \d+\.\d+\.\d+\.\d+' | cat"
 
 alias reztart="case '$-' in *i*) clear; exec sudo --login --user $USER exec bash -c \"cd \$PWD && exec \$(echo \${0#'-'} | xargs which)\" ;; *) echo reztart only interactive shells ;; esac"
+
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  if which xclip &> /dev/null; then
+    alias pbcopy='xclip -selection clipboard'
+    alias pbpaste='xclip -selection clipboard -o'
+  else
+    echo "Install xclip to enable pbcopy and pbpaste on linux"
+  fi
+fi
 ########## GENERIC ALIASES END
 
 ########## GIT ALIASES
@@ -63,6 +72,10 @@ if which poetry &> /dev/null; then
     fi
   }
 fi
+
+if test -d "$HOME/.local-bin"; then
+  export PATH="$PATH:$HOME/.local-bin"
+fi
 ########## WORKAROUNDS END
 
 # FUNCTIONS
@@ -118,6 +131,25 @@ if which emacs &> /dev/null &&
     emacs $@ &
   }
 fi
+
+if [[ -s "$HOME/.idea/bin/idea.sh" ]]; then
+  function idea() {
+    ~/.idea/bin/idea.sh $@ &>! ~/.var/log/markjayvithidea.log &
+    disown
+  }
+fi
+
+
+if which ranger &> /dev/null; then
+  f() {
+      temp_file="$(mktemp -t "ranger_cd.XXXXXXXXXX")"
+      ranger --choosedir="$temp_file" -- "${@:-$PWD}"
+      if chosen_dir="$(cat -- "$temp_file")" && [ -n "$chosen_dir" ] && [ "$chosen_dir" != "$PWD" ]; then
+          cd -- "$chosen_dir"
+      fi
+      rm -f -- "$temp_file"
+  }
+fi
 ####### FUNCTIONS END
 
 ### KIEX
@@ -171,5 +203,20 @@ if [[ -d  "$HOME/.goenv" ]]; then
 fi
 if which goenv &> /dev/null; then
     eval "$(goenv init -)"
+fi
+###
+
+### java sdkman
+if [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]]; then
+  export SDKMAN_DIR="$HOME/.sdkman"
+  source "$HOME/.sdkman/bin/sdkman-init.sh"
+fi
+
+### PHP phpenv
+if [[ -d  "$HOME/.phpenv/bin" ]]; then
+    export PATH="$HOME/.phpenv/bin:$PATH"
+fi
+if which phpenv &> /dev/null; then
+  eval "$(phpenv init -)";
 fi
 ###

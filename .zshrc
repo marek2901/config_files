@@ -48,16 +48,12 @@ fi
 alias refresh-completions="autoload -Uz compinit && compinit -i"
 ########## WORKAROUNDS END
 
-########## LOCAL OVERRIDES
+########## LOCAL SECRETS
 if test -s "$HOME/.zshrc.secret"; then
     ## STORE ENV VARS HERE
     source "$HOME/.zshrc.secret"
 fi
-if test -s "$HOME/.zshrc.local"; then
-    ## STORE MACHINE SPECIFIC SETUP HERE
-    source "$HOME/.zshrc.local"
-fi
-########## LOCAL OVERRIDES END
+########## LOCAL SECRETS END
 
 ########## EDIT CURRENT LINE IN VIM
 autoload -U edit-command-line
@@ -69,3 +65,10 @@ bindkey '^xe' edit-command-line
 ########## EDIT CURRENT LINE IN VIM END
 
 source "$HOME/.shellrc-common.sh"
+
+########## LOCAL OVERRIDES
+if test -s "$HOME/.zshrc.local"; then
+    ## STORE MACHINE SPECIFIC SETUP HERE
+    source "$HOME/.zshrc.local"
+fi
+########## LOCAL OVERRIDES END

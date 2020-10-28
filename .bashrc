@@ -54,15 +54,17 @@ if [[ "$OSTYPE" != "darwin"* ]]; then
   alias ls="ls --color=auto"
 fi
 
-########## LOCAL OVERRIDES
+########## LOCAL SECRETS
 if test -s "$HOME/.bashrc.secret"; then
     ## STORE ENV VARS HERE
     source "$HOME/.bashrc.secret"
 fi
+########## LOCAL SECRETS END
+
+source "$HOME/.shellrc-common.sh"
+
+########## LOCAL OVERRIDES
 if test -s "$HOME/.bashrc.local"; then
-    ## STORE MACHINE SPECIFIC SETUP HERE
     source "$HOME/.bashrc.local"
 fi
 ########## LOCAL OVERRIDES END
-
-source "$HOME/.shellrc-common.sh"
