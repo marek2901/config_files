@@ -28,7 +28,7 @@ main() {
       if brew outdated -q | grep -E "^python$" &> /dev/null; then
         TRIGGER_PIPX_REINSTALL="true"
       fi
-      brew upgrade && brew cask upgrade && brew cleanup && brew doctor
+      brew upgrade && brew upgrade --cask && brew cleanup && brew doctor
     fi
   elif [[ "$OSTYPE" == "linux-gnu" ]]; then
     ### apt get
