@@ -49,6 +49,10 @@ main() {
     if which snap &> /dev/null && snap --version &> /dev/null; then
       sudo snap refresh
     fi
+    ### flatpak
+    if which flatpak &> /dev/null && flatpak --version &> /dev/null; then
+      flatpak update
+    fi
   fi
 
   ### Pyenv
