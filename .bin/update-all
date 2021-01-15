@@ -51,7 +51,7 @@ main() {
     fi
     ### flatpak
     if which flatpak &> /dev/null && flatpak --version &> /dev/null; then
-      flatpak update
+      flatpak update -y
     fi
   fi
 
