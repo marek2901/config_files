@@ -134,7 +134,7 @@ fi
 
 if [[ -s "$HOME/.idea/bin/idea.sh" ]]; then
   function idea() {
-    ~/.idea/bin/idea.sh $@ &>! ~/.var/log/markjayvithidea.log &
+    ~/.idea/bin/idea.sh $@ &>! "$HOME/.var/log/$(whoami)idea.log" &
     disown
   }
 fi
