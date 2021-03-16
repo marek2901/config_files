@@ -61,6 +61,23 @@ main() {
     pyenv update
   fi
 
+  ### Rbenv
+  if [[ -s "$HOME/.rbenv/plugins/rbenv-update/bin/rbenv-update" ]] &&
+    which rbenv &> /dev/null; then
+    rbenv update
+  fi
+
+  ### Nodenv
+  if [[ -s "$HOME/.nodenv/plugins/nodenv-update/bin/nodenv-update" ]] &&
+    which nodenv &> /dev/null; then
+    nodenv update
+  fi
+
+  ### phpenv
+  if which phpenv &> /dev/null; then
+    phpenv update
+  fi
+
   ### pipx
   if which pipx &> /dev/null && pipx --version &> /dev/null; then
     if [[ "$TRIGGER_PIPX_REINSTALL" == "true" ]]; then
