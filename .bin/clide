@@ -1,0 +1,71 @@
+#!/bin/bash
+
+if ! which tmux &> /dev/null || ! which nvim &> /dev/null; then
+  echo "install tmux and nvim to run clide"
+  exit 234
+fi
+
+session_name="clide--session--$(pwd | sed 's#/#_#g' | sed 's/\./_/g')"
+
+has_param() {
+    local term="$1"
+    shift
+    for arg; do
+        if [[ $arg == "$term" ]]; then
+            return 0
+        fi
+    done
+    return 1
+}
+
+_print_help() {
+  cat <<-EOM
+Type clide without params to start cli ide in cwd
+
+params:
+  -a: attach
+  -d: delete (your cwd must match the one that you have initiated cli ide you want to delete)
+EOM
+}
+
+if has_param '-h' "$@"; then
+  _print_help
+  exit 0
+fi
+if has_param '--help' "$@"; then
+  _print_help
+  exit 0
+fi
+
+if has_param '-d' "$@"; then
+  tmux kill-session -t $session_name
+  exit 0
+fi
+
+if ! [ -z "${TMUX}" ]; then
+  echo "already in tmux"
+  exit 1
+fi
+
+if has_param '-a' "$@"; then
+  if tmux list-sessions &> /dev/null; then
+    echo which session
+    tmux list-sessions | grep -oE '^[^:]*'
+    read session_no
+    tmux attach -t "$(tmux list-sessions | grep -oE '^[^:]*' | sed -n "$session_no p")"
+    exit 0
+  else
+    echo no sessions to attach to
+    exit 2
+  fi
+fi
+
+tmux has-session -t $session_name 2>/dev/null
+if [ $? -eq 1 ]
+then
+  echo "making a session $session_name"
+  tmux new-session -d -s $session_name -n vim_window
+  tmux send-keys -t $session_name:vim_window "nvim" Enter
+fi
+
+tmux attach -t $session_name
