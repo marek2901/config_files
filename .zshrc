@@ -6,13 +6,16 @@ if test -s ${ZIM_HOME}/init.zsh; then
     bindkey -e
     WORDCHARS=${WORDCHARS//[\/]}
     ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
+
     if [[ ${ZIM_HOME}/init.zsh -ot ${ZDOTDIR:-${HOME}}/.zimrc ]]; then
       source ${ZIM_HOME}/zimfw.zsh init -q
     fi
     source ${ZIM_HOME}/init.zsh
+
     bindkey '^[[A' history-substring-search-up
     bindkey '^[[B' history-substring-search-down
 
+    # Bind up and down keys
     zmodload -F zsh/terminfo +p:terminfo
     if [[ -n ${terminfo[kcuu1]} && -n ${terminfo[kcud1]} ]]; then
       bindkey ${terminfo[kcuu1]} history-substring-search-up
@@ -32,7 +35,9 @@ if which zstyle &> /dev/null; then
   zstyle ':zim:git-info:clean' format '%F{green}✓'
   zstyle ':zim:git-info:dirty' format '%F{yellow}✓'
 fi
+
 # I wanna lowercase g for git
+zstyle ':zim:git' aliases-prefix 'g'
 alias g='G '
 ########## ZIM FRAMEWORK END
 
