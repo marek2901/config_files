@@ -158,6 +158,11 @@ f() {
 fi
 ####### FUNCTIONS END
 
+### podman alias (only if there is no docker aside)
+if which podman &> /dev/null && ! which docker &> /dev/null; then
+  alias docker=podman
+fi
+
 ### KIEX
 if test -s "$HOME/.kiex/scripts/kiex"; then
     source "$HOME/.kiex/scripts/kiex"
