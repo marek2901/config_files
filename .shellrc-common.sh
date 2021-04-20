@@ -163,6 +163,11 @@ if which podman &> /dev/null && ! which docker &> /dev/null; then
   alias docker=podman
 fi
 
+### podman-compose alias (only if there is no docker-compose aside)
+if which podman-compose &> /dev/null && ! which docker &> /dev/null; then
+  alias docker-compose=podman-compose
+fi
+
 ### KIEX
 if test -s "$HOME/.kiex/scripts/kiex"; then
     source "$HOME/.kiex/scripts/kiex"
