@@ -7,6 +7,10 @@ alias ifmyip4="ifconfig | grep -E 'inet\ \d+.*broadcast' | grep -Eo 'inet \d+\.\
 
 alias reztart="case '$-' in *i*) clear; exec sudo --login --user $USER exec bash -c \"cd \$PWD && exec \$(echo \${0#'-'} | xargs which)\" ;; *) echo reztart only interactive shells ;; esac"
 
+if which batcat &> /dev/null; then
+  alias cat="batcat"
+fi
+
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   if which xclip &> /dev/null; then
     alias pbcopy='xclip -selection clipboard'
