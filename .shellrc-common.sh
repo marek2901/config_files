@@ -11,6 +11,10 @@ if which batcat &> /dev/null; then
   alias cat="batcat"
 fi
 
+if which bat &> /dev/null && bat --help | grep -o "A cat(1) clone with syntax highlighting and Git integration" &> /dev/null; then
+  alias cat="bat"
+fi
+
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   if which xclip &> /dev/null; then
     alias pbcopy='xclip -selection clipboard'
