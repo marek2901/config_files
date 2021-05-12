@@ -1,4 +1,4 @@
-########## GENERIC ALIASES
+# ######### GENERIC ALIASES
 alias ll='ls -lF'
 alias la='ls -A'
 alias l='ls -CF'
@@ -198,10 +198,14 @@ fi
 ###
 
 ### python PyEnv
+if [[ -d  "$HOME/.pyenv" ]]; then
+    export PYENV_ROOT="$HOME/.pyenv"
+fi
 if [[ -d  "$HOME/.pyenv/bin" ]]; then
     export PATH="$HOME/.pyenv/bin:$PATH"
 fi
 if which pyenv &> /dev/null; then
+    eval "$(pyenv init --path)"
     eval "$(pyenv init - --no-rehash)"
 fi
 if [[ -s "$HOME/.pyenv/plugins/pyenv-virtualenv/bin/pyenv-virtualenv-init" ]] ||
