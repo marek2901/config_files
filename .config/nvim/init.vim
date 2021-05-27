@@ -8,6 +8,7 @@ call plug#begin()
   Plug 'ervandew/supertab'
   Plug 'dense-analysis/ale'
   Plug 'preservim/vimux'
+  Plug 'vim-test/vim-test'
 
   Plug 'tpope/vim-rails'
   Plug 'tpope/vim-endwise'
@@ -168,21 +169,12 @@ set hlsearch
 nnoremap <leader>ff :GFiles<CR>
 nnoremap <leader>nt :NERDTreeToggle<CR>
 
-" Run the current file with rspec
-" augroup run_tests_wrapper
-"   au!
-"   au BufNewFile,BufRead,BufEnter,WinEnter,TabEnter *
-"         \ nnoremap <Leader>rb :echo "Implement tests for current file extension"<CR>
-"   au BufNewFile,BufRead,BufEnter,WinEnter,TabEnter *spec.rb
-"         \ nnoremap <Leader>rb :call VimuxRunCommand("clear; rspec " . bufname("%") . ":" .  line("."))<CR>
-" augroup END
-augroup run_tests_wrapper
-  au!
-  au BufEnter *
-        \ nnoremap <Leader>rb :echo "Implement tests for current file extension"<CR>
-  au BufEnter *spec.rb
-        \ nnoremap <Leader>rb :call VimuxRunCommand("clear; rspec " . bufname("%") . ":" .  line("."))<CR>
-augroup END
+nnoremap <Leader>rb :TestFile<CR>
+nnoremap <Leader>rf :TestNearest<CR>
+nnoremap <Leader>rl :TestLast<CR>
+
+" make test commands execute using dispatch.vim
+let test#strategy = "vimux"
 
 " Prompt for a command to run
 nnoremap <Leader>vp :VimuxPromptCommand<CR>
