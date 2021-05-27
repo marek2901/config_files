@@ -12,6 +12,10 @@ call plug#begin()
 
   Plug 'tpope/vim-rails'
   Plug 'tpope/vim-endwise'
+
+  Plug 'othree/yajs.vim'
+
+  Plug 'hail2u/vim-css3-syntax'
 call plug#end()
 
 let g:fzf_preview_window = []
