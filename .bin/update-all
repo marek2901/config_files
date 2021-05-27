@@ -46,10 +46,10 @@ main() {
     fi
 
     ### snap
-    if which snap &> /dev/null && snap --version &> /dev/null; then
-      if grep -q Microsoft /proc/version; then
-        echo "Not running snap refresh in wsl"
-      else
+    if grep -q Microsoft /proc/version; then
+      echo "Not running snap refresh in wsl"
+    else
+      if which snap &> /dev/null && snap --version &> /dev/null; then
         sudo snap refresh
       fi
     fi
