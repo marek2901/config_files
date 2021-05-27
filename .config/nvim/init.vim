@@ -55,6 +55,10 @@ set smartcase
 " Highlight search results
 set hlsearch
 
+" Highlight search results as you type
+set incsearch
+set inccommand=nosplit
+
 " Show matching brackets when text indicator is over them
 set showmatch
 
