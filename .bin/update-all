@@ -47,7 +47,11 @@ main() {
 
     ### snap
     if which snap &> /dev/null && snap --version &> /dev/null; then
-      sudo snap refresh
+      if grep -q Microsoft /proc/version; then
+        echo "Not running snap refresh in wsl"
+      else
+        sudo snap refresh
+      fi
     fi
     ### flatpak
     if which flatpak &> /dev/null && flatpak --version &> /dev/null; then
