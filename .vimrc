@@ -129,6 +129,10 @@ set wildmenu
 " Never need 'Ex mode'
 nnoremap Q <NOP>
 
+" Copy to tmux buffer.
+vnoremap <leader>ty y<cr>:call system("tmux load-buffer -", @0)<cr>gv
+nnoremap <leader>tp :let @0 = system("tmux save-buffer -")<cr>"0p<cr>g;
+
 " include machine specific vimrc
 try
   source ~/.vimrc.local

@@ -202,6 +202,10 @@ nnoremap <Leader>vz :call VimuxZoomRunner()<CR>
 " Clear the terminal screen of the runner pane.
 nnoremap <Leader>v<C-l> :VimuxClearTerminalScreen<CR>
 
+" Interact with tmux clipboard
+vnoremap <leader>ty y<cr>:call system("tmux load-buffer -", @0)<cr>gv
+nnoremap <leader>tp :let @0 = system("tmux save-buffer -")<cr>"0p<cr>g;
+
 " COC
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
 " unicode characters in the file autoload/float.vim
