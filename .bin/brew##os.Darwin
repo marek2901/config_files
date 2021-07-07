@@ -23,5 +23,11 @@ if which pyenv > /dev/null 2>&1; then
   # assumes default location of brew in `/usr/local/bin/brew`
   /usr/bin/env PATH="${PATH//$(pyenv root)\/shims:/}" /usr/local/bin/brew "$@"
 else
-  /usr/local/bin/brew "$@"
+  if test -x /usr/local/bin/brew; then
+    /usr/local/bin/brew "$@"
+  elif test -x /opt/homebrew/bin/brew; then
+    /opt/homebrew/bin/brew "$@"
+  else
+    echo "Seems like you dont have brew in any of usual places"
+  fi
 fi
