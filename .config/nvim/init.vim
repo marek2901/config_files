@@ -171,12 +171,22 @@ nnoremap Q <NOP>
 
 set hlsearch
 
-nnoremap <leader>ff :GFiles<CR>
-nnoremap <leader>nt :NERDTreeToggle<CR>
+function! SmartFuzzy()
+  let root = split(system('git rev-parse --show-toplevel'), '\n')
+  if len(root) == 0 || v:shell_error
+    Files
+  else
+    GFiles -co --exclude-standard -- . ':!:vendor/*:node_modules/*'
+  endif
+endfunction
 
-nnoremap <Leader>rb :TestFile<CR>
-nnoremap <Leader>rf :TestNearest<CR>
-nnoremap <Leader>rl :TestLast<CR>
+command! -nargs=* SmartFuzzy :call SmartFuzzy()
+nnoremap <silent> <leader>ff :SmartFuzzy<CR>
+nnoremap <silent> <leader>nt :NERDTreeToggle<CR>
+
+nnoremap <silent> <Leader>rb :TestFile<CR>
+nnoremap <silent> <Leader>rf :TestNearest<CR>
+nnoremap <silent> <Leader>rl :TestLast<CR>
 
 " make test commands execute using dispatch.vim
 let test#strategy = "vimux"
