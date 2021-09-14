@@ -16,6 +16,8 @@ zmodule utility
 #
 # Prompt
 #
+# Add promp-pwd
+zmodule prompt-pwd
 # Exposes git repository status information to prompts.
 zmodule git-info
 # A customizable version of steeef's prompt theme.
