@@ -82,6 +82,11 @@ main() {
     phpenv update
   fi
 
+  ### goenv
+  if [[ -d "$HOME/.goenv/.git" ]]; then
+    (cd "$HOME/.goenv" && git pull origin master)
+  fi
+
   ### pipx
   if which pipx &> /dev/null && pipx --version &> /dev/null; then
     if [[ "$TRIGGER_PIPX_REINSTALL" == "true" ]]; then
