@@ -17,5 +17,9 @@ if [[ "$OSTYPE" == "darwin"* ]] && ps aux | grep "IntelliJ IDEA.app" | grep -v g
   open -a IntelliJ\ IDEA $@
 else
   # Prevent recursion
-  /usr/bin/env PATH="${PATH//$(getCurrentsFileAbsPath):/}" idea $@
+  if [[ "$OSTYPE" == "darwin"* ]]; then
+    /usr/bin/env PATH="${PATH//$(getCurrentsFileAbsPath):/}" idea $@
+  else
+    /usr/bin/env PATH="${PATH//$(getCurrentsFileAbsPath):/}" idea $@ &> "$HOME/.idea.log" & disown
+  fi
 fi
