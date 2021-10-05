@@ -1,10 +1,28 @@
-set multiple-cursors
-set surround
-set number
-
-set ignorecase
-
 command WQ wq
 command Wq wq
 command W w
 command Q q
+
+let mapleader = "\\"
+
+set ignorecase
+set number
+set idearefactormode=keep
+set ideajoin
+set surround
+set multiple-cursors
+set commentary
+
+" actions
+nmap <leader>bd <action>(CloseEditor)
+nmap <leader>i <action>(Generate)
+nmap <leader>/ <action>(ShowErrorDescription)
+nmap <leader>e <action>(GotoNextError)
+nmap <leader>nt :NERDTreeFocus <CR>
+nmap <leader>nf :NERDTreeFind <CR>
+nmap <leader>nr :NERDTreeRefreshRoot <CR>
+
+
+set NERDTree
+let g:NERDTreeMapActivateNode='l'
+let g:NERDTreeMapJumpParent='h'
