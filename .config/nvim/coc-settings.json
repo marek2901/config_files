@@ -1,0 +1,34 @@
+{
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "elixir",
+    "javascript",
+    "javascriptreact",
+    "jsx",
+    "typescript",
+    "typescriptreact",
+    "json",
+    "jsonc",
+    "graphql",
+    "html",
+    "markdown",
+    "ruby",
+    "scss",
+    "yaml"
+  ],
+  "eslint.autoFixOnSave": true,
+  "prettier.disableSuccessMessage": true,
+  "prettier.eslintIntegration": true,
+  "prettier.onlyUseLocalVersion": true,
+  "prettier.tabWidth": 2,
+  "yaml.format.enable": true,
+  "yaml.format.singleQuote": true,
+  "git.enableGutters": false,
+  "snippets.ultisnips.enable": false,
+  "markdownlint.config": {
+    "MD004": {
+      "style": "asterisk"
+    },
+    "MD033": false
+  }
+}
