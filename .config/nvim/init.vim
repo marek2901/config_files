@@ -5,10 +5,6 @@ call plug#begin()
   Plug 'itchyny/lightline.vim'
   Plug 'sheerun/vim-polyglot'
 
-  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-  Plug 'nvim-treesitter/playground'
-  Plug 'neovim/nvim-lspconfig'
-
   " Markdown
   Plug 'mzlogin/vim-markdown-toc'
 
