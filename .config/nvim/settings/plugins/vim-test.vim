@@ -1,8 +1,6 @@
-nnoremap <leader>cs :TestFile<CR>
-nnoremap <leader>ns :TestNearest<CR>
-nnoremap <leader>ls :TestLast<CR>
-nnoremap <leader>as :TestSuite<CR>
-nnoremap <leader>vs :TestVisit<CR>
+nnoremap <silent> <Leader>rb :TestFile<CR>
+nnoremap <silent> <Leader>rf :TestNearest<CR>
+nnoremap <silent> <Leader>rl :TestLast<CR>
 
 " let test#strategy = "neovim"
 let test#strategy = "vimux"
