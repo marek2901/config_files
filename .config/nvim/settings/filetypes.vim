@@ -24,5 +24,7 @@ autocmd BufWritePre *
       \ call mkdir(expand("<afile>:p:h"), "p") |
   \ endif
 
+autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
+
 " Highlight symbol under cursor on CursorHold
 autocmd CursorHold * silent call CocActionAsync('highlight')
