@@ -30,13 +30,12 @@ call plug#begin()
 
   " Happiness
   Plug 'airblade/vim-gitgutter'
-  Plug 'christoomey/vim-tmux-navigator'
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
+  Plug 'rking/ag.vim'
   Plug 'junegunn/goyo.vim'
   Plug 'ntpeters/vim-better-whitespace'
   Plug 'Olical/vim-enmasse', { 'on': 'EnMasse' }
-  Plug 'mileszs/ack.vim'
   Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
   Plug 'tmux-plugins/vim-tmux'
   Plug 'tpope/vim-commentary'
@@ -81,7 +80,7 @@ set autoread
 set clipboard=unnamed
 set colorcolumn=80
 set cursorline
-set cmdheight=2
+" set cmdheight=2
 set expandtab
 set guicursor=
 set hidden
