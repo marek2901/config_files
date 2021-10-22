@@ -13,6 +13,7 @@ let g:coc_global_extensions = [
 \  'coc-svg',
 \  'coc-tsserver',
 \  'coc-solargraph',
+\  'coc-pyright',
 \  'coc-go',
 \  'coc-yaml'
 \]
