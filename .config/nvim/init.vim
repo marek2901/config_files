@@ -73,10 +73,8 @@ highlight clear SignColumn
 
 set autoindent
 set autoread
-set clipboard=unnamed
 set colorcolumn=80
 set cursorline
-" set cmdheight=2
 set expandtab
 set guicursor=
 set hidden
