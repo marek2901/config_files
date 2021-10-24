@@ -19,9 +19,6 @@ inoremap <C-c> <ESC>
 " misc
 nnoremap <leader>vi :sp $MYVIMRC<cr>
 nnoremap <leader>so :source $MYVIMRC<cr>
-nnoremap <leader>ch :silent noh<cr>
-nnoremap <leader>rs :syntax sync fromstart<cr>
-nnoremap <leader>p viwp<ESC>b
 
 " vim-plug
 nnoremap <leader>pi :PlugInstall<cr>
@@ -40,9 +37,9 @@ nnoremap <leader>s :%s/\<<C-r><C-w>\>/
 
 " Use tab for autocompletion
 inoremap <silent><expr> <TAB>
-		\ pumvisible() ? "\<C-n>" :
-		\ <SID>check_back_space() ? "\<TAB>" :
-    \ coc#refresh()
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
 
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
@@ -53,10 +50,6 @@ endfunction
 
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
-
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
-" Coc only does snippet and additional edit on confirm.
-" inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
 " Coc only does snippet and additional edit on confirm.
@@ -91,20 +84,7 @@ function! s:show_documentation()
   endif
 endfunction
 
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
-" position. Coc only does snippet and additional edit on confirm.
-" if has('patch8.1.1068')
-"   " Use `complete_info` if your (Neo)Vim version supports it.
-"   inoremap <expr> <cr> complete_info()["selected"] != -1 ? "\<C-y>" : "\<C-g>u\<CR>"
-" else
-  " imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-" endif
-
 " Add `:OR` command for organize imports of the current buffer.
 command! -nargs=0 OR :call CocAction('runCommand', 'editor.action.organizeImport')
-
-" Run :Tsc to populate all typescript errors in the project in a quickfix
-" window. Run :copen to view them all
-command! -nargs=0 Tsc :call CocAction('runCommand', 'tsserver.watchBuild')
 
 runtime macros/matchit.vim " use % to jump between start/end of methods
