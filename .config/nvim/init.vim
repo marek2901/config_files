@@ -80,6 +80,7 @@ set guicursor=
 set hidden
 set hlsearch
 set incsearch
+set inccommand=nosplit
 set ignorecase
 set lazyredraw
 set nobackup
