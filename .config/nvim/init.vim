@@ -33,6 +33,7 @@ call plug#begin()
   Plug 'ntpeters/vim-better-whitespace'
   Plug 'Olical/vim-enmasse', { 'on': 'EnMasse' }
   Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
+  Plug 'honza/vim-snippets'
   Plug 'tmux-plugins/vim-tmux'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-endwise'

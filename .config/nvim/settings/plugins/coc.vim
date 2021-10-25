@@ -15,5 +15,6 @@ let g:coc_global_extensions = [
 \  'coc-solargraph',
 \  'coc-pyright',
 \  'coc-go',
+\  'coc-snippets',
 \  'coc-yaml'
 \]

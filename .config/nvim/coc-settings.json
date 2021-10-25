@@ -23,8 +23,9 @@
   "prettier.tabWidth": 2,
   "yaml.format.enable": true,
   "yaml.format.singleQuote": true,
-  "git.enableGutters": false,
+  "git.enableGutters": true,
   "snippets.ultisnips.enable": false,
+  "snippets.userSnippetsDirectory": "~/.config/nvim/snips",
   "markdownlint.config": {
     "MD004": {
       "style": "asterisk"
