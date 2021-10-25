@@ -46,7 +46,6 @@ call plug#begin()
 
   " Syntax colors
   Plug 'arcticicestudio/nord-vim'
-  Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
