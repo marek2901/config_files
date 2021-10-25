@@ -46,6 +46,7 @@ call plug#begin()
 
   " Syntax colors
   Plug 'arcticicestudio/nord-vim'
+  Plug 'tomasr/molokai'
 call plug#end()
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
@@ -57,17 +58,9 @@ end
 filetype plugin indent on
 syntax enable
 
-" Nord settings which must be set before `colorscheme`
-let g:nord_cursor_line_number_background = 1
-let g:nord_italic = 1
-let g:nord_italic_comments = 1
-let g:nord_underline = 1
-
 set background=dark
 let g:enable_italic_font=1
-" let g:hybrid_reduced_contrast=1
-" let g:hybrid_custom_term_colors=1
-colorscheme nord
+colorscheme molokai
 
 highlight clear SignColumn
 

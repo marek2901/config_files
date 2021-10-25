@@ -1,5 +1,5 @@
 let g:lightline = {
-\ 'colorscheme': 'nord',
+\ 'colorscheme': 'molokai',
 \ 'component_function': {
 \   'filename': 'LightlineFilename'
 \ }
