@@ -24,7 +24,7 @@
   "yaml.format.enable": true,
   "yaml.format.singleQuote": true,
   "git.enableGutters": true,
-  "snippets.ultisnips.enable": false,
+  "snippets.ultisnips.enable": true,
   "snippets.userSnippetsDirectory": "~/.config/nvim/snips",
   "markdownlint.config": {
     "MD004": {
