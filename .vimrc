@@ -117,6 +117,16 @@ function! InsertTabWrapper()
       endif
 endfunction
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
+function! InsertShiftTabWrapper()
+      let col = col('.') - 1
+      if !col || getline('.')[col - 1] !~ '\k'
+        return "\<tab>"
+      else
+        return "\<c-p>"
+      endif
+endfunction
+inoremap <s-tab> <c-r>=InsertShiftTabWrapper()<cr>
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
 
 " Case insensitive :wq :WQ
 command! -bang -range=% -complete=file -nargs=* W <line1>,<line2>write<bang> <args>
