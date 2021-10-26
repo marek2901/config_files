@@ -64,6 +64,8 @@ colorscheme molokai
 
 highlight clear SignColumn
 
+set synmaxcol=1000
+
 set autoindent
 set autoread
 set colorcolumn=80
