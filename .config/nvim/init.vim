@@ -11,6 +11,9 @@ call plug#begin()
   " Ruby
   Plug 'tpope/vim-rails'
 
+  " Elixir
+  Plug 'elixir-editors/vim-elixir'
+
   " Text
   Plug 'PeterRincker/vim-argumentative'
   Plug 'Raimondi/delimitMate'

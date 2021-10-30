@@ -46,6 +46,14 @@ alias reload-shell=". ~/.zshrc"
 ########## GENERIC ALIASES END
 
 ########## WORKAROUNDS
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
+  autoload -Uz compinit
+  compinit
+fi
+
 if [[ -d ~/.zsh-completions ]]; then
     fpath=(~/.zsh-completions $fpath)
 fi
