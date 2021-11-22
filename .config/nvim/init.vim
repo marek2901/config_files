@@ -10,6 +10,7 @@ call plug#begin()
 
   " Ruby
   Plug 'tpope/vim-rails'
+  Plug 'vim-scripts/blockle.vim'
 
   " Elixir
   Plug 'elixir-editors/vim-elixir'
