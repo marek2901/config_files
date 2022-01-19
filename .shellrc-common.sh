@@ -2,6 +2,10 @@
 alias ll='ls -lF'
 alias la='ls -A'
 alias l='ls -CF'
+# override ll with exa if it exists
+if which exa &> /dev/null; then
+  alias ll='exa --colour=always --long --header --git'
+fi
 
 alias ifmyip4="ifconfig | grep -E 'inet\ \d+.*broadcast' | grep -Eo 'inet \d+\.\d+\.\d+\.\d+' | cat"
 
