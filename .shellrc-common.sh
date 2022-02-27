@@ -4,7 +4,7 @@ alias la='ls -A'
 alias l='ls -CF'
 # override ll with exa if it exists
 if which exa &> /dev/null; then
-  alias ll='exa --colour=always --long --header --git'
+  alias ll='exa --colour=always --long --header'
 fi
 
 alias ifmyip4="ifconfig | grep -E 'inet\ \d+.*broadcast' | grep -Eo 'inet \d+\.\d+\.\d+\.\d+' | cat"
@@ -52,6 +52,10 @@ export LANG=en_US.UTF-8
 
 export LESS='-RI'
 export GIT_INTERNAL_GETTEXT_TEST_FALLBACKS=1
+
+if which tmate &> /dev/null; then
+  alias tmatetmux='TMUX= tmux'
+fi
 
 ### Pipsi or pipx binaries
 if test -d "$HOME/.local/bin"; then
