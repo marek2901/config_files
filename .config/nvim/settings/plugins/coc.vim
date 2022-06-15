@@ -8,6 +8,7 @@ let g:coc_global_extensions = [
 \  'coc-json',
 \  'coc-git',
 \  'coc-markdownlint',
+\  'coc-phpls',
 \  'coc-prettier',
 \  'coc-styled-components',
 \  'coc-sql',
