@@ -85,3 +85,7 @@ if test -s "$HOME/.zshrc.local"; then
     source "$HOME/.zshrc.local"
 fi
 ########## LOCAL OVERRIDES END
+
+if which direnv &> /dev/null; then
+  eval "$(direnv hook zsh)"
+fi
