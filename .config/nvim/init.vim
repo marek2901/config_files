@@ -48,6 +48,7 @@ call plug#begin()
   Plug 'tpope/vim-rhubarb'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-abolish'
+  Plug 'beanworks/vim-phpfmt'
 
   " Syntax colors
   Plug 'arcticicestudio/nord-vim'
