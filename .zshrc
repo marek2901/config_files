@@ -86,6 +86,9 @@ if test -s "$HOME/.zshrc.local"; then
 fi
 ########## LOCAL OVERRIDES END
 
+if [ -n "$TMUX" ] && [ -n "$DIRENV_DIR" ]; then
+  direnv reload
+fi
 if which direnv &> /dev/null; then
   eval "$(direnv hook zsh)"
 fi

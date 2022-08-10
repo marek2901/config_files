@@ -65,7 +65,6 @@ if [ $? -eq 1 ]
 then
   echo "making a session $session_name"
   tmux new-session -d -s $session_name -n vim_window
-  tmux send-keys -t $session_name:vim_window "direnv reload" Enter
   tmux send-keys -t $session_name:vim_window "nvim" Enter
 fi
 
