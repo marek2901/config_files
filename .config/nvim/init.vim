@@ -15,6 +15,9 @@ call plug#begin()
   " Elixir
   Plug 'elixir-editors/vim-elixir'
 
+  " Rust
+  Plug 'rust-lang/rust.vim'
+
   " Text
   Plug 'PeterRincker/vim-argumentative'
   Plug 'Raimondi/delimitMate'

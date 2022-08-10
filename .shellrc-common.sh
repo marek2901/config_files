@@ -190,9 +190,9 @@ if test -s "$HOME/.kiex/scripts/kiex"; then
 fi
 ###
 
-### rust Cargo
-if test -d "$HOME/.cargo/bin"; then
-    export PATH="$HOME/.cargo/bin:$PATH"
+### Rustup
+if test -s "$HOME/.cargo/env"; then
+  source "$HOME/.cargo/env"
 fi
 ###
 
