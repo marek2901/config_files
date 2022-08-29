@@ -18,6 +18,8 @@
     "yaml"
   ],
   "eslint.autoFixOnSave": true,
+  "suggest.noselect": true,
+  "suggest.enablePreselect": false,
   "prettier.disableSuccessMessage": true,
   "prettier.eslintIntegration": true,
   "prettier.onlyUseLocalVersion": true,
