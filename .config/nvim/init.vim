@@ -72,7 +72,7 @@ let g:enable_italic_font=1
 colorscheme molokai
 
 highlight clear SignColumn
-highlight CursorLineNr term=bold gui=bold guifg=white
+highlight CursorLineNr ctermfg=white guifg=white
 
 set synmaxcol=1000
 
