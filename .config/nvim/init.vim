@@ -53,6 +53,7 @@ call plug#begin()
   Plug 'tpope/vim-abolish'
   Plug 'beanworks/vim-phpfmt'
   Plug 'easymotion/vim-easymotion'
+  Plug 'dan-t/vim-lvimrc'
 
   " Syntax colors
   Plug 'arcticicestudio/nord-vim'
