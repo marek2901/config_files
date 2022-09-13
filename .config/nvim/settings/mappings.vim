@@ -2,6 +2,7 @@ command! Q q
 command! W w
 command! Wq wq
 command! Qa qa
+map Q <Nop>
 
 " Use 0 to go to first character instead of beginning of line
 nnoremap 0 ^
