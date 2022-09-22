@@ -21,3 +21,6 @@ let g:coc_global_extensions = [
 \  'coc-snippets',
 \  'coc-yaml'
 \]
+
+highlight CocFloating ctermbg=White
+highlight CocFloating ctermfg=Black
