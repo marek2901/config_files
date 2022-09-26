@@ -101,7 +101,7 @@ set scrolloff=4
 " https://github.com/neoclide/coc.nvim#example-vim-configuration
 set shortmess+=c
 set sidescrolloff=5
-set signcolumn=no
+set signcolumn=yes
 set shiftround
 set shiftwidth=2
 set showcmd
