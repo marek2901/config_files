@@ -1,6 +1,7 @@
 let g:coc_global_extensions = [
 \  'coc-css',
 \  'coc-cssmodules',
+\  'coc-emmet',
 \  'coc-eslint',
 \  'coc-elixir',
 \  'coc-rls',
