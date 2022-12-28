@@ -105,6 +105,10 @@ main() {
   if which tldr &> /dev/null; then
     tldr --update
   fi
+
+  if which nvim &> /dev/null; then
+    nvim +PlugUpgrade +PlugUpdate +CocUpdateSync +qall
+  fi
 }
 
 self_update
