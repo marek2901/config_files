@@ -92,3 +92,5 @@ fi
 if which direnv &> /dev/null; then
   eval "$(direnv hook zsh)"
 fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

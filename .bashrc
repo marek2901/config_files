@@ -68,3 +68,5 @@ if test -s "$HOME/.bashrc.local"; then
     source "$HOME/.bashrc.local"
 fi
 ########## LOCAL OVERRIDES END
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
