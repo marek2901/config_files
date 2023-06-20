@@ -5,7 +5,8 @@ if ! which tmux &> /dev/null || ! which nvim &> /dev/null; then
   exit 234
 fi
 
-session_name="clide--session--$(pwd | sed 's#/#_#g' | sed 's/\./_/g' | sed 's/\ /_/g')"
+reversed_pwd="$(pwd | tr '/' '\n' | grep -oE "\S+" | tac | xargs | tr ' ' '/')"
+session_name="clide--session--$(echo $reversed_pwd | sed 's#/#_#g' | sed 's/\./_/g' | sed 's/\ /_/g')"
 
 has_param() {
     local term="$1"
