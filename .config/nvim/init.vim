@@ -18,6 +18,9 @@ call plug#begin()
   " Rust
   Plug 'rust-lang/rust.vim'
 
+  " Toml
+  Plug 'cespare/vim-toml'
+
   " Text
   Plug 'PeterRincker/vim-argumentative'
   Plug 'Raimondi/delimitMate'

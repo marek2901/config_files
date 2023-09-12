@@ -7,6 +7,9 @@ autocmd BufRead,BufNewFile *.md setlocal textwidth=80
 " autocmd BufRead,BufNewFile *.js set filetype=javascriptreact
 autocmd filetype help call HelpFileMode()
 
+" toml
+autocmd BufRead,BufNewFile MAINTAINERS,*.toml set ft=toml formatprg=toml-fmt
+
 " Always open quickfix window on bottom
 autocmd FileType qf wincmd J
 
