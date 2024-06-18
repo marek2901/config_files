@@ -44,9 +44,6 @@ set listchars=tab:→\ ,nbsp:␣,trail:•,precedes:«,extends:»
 
 syntax enable
 
-colorscheme desert
-set background=dark
-
 " Set extra options when running in GUI mode
 if has("gui_running")
     set guioptions-=T
@@ -142,6 +139,84 @@ nnoremap Q <NOP>
 " Copy to tmux buffer.
 vnoremap <leader>ty y<cr>:call system("tmux load-buffer -", @0)<cr>gv
 nnoremap <leader>tp :let @0 = system("tmux save-buffer -")<cr>"0p<cr>g;
+
+""""
+" THEME
+""""
+hi clear
+
+if exists("syntax_on")
+  syntax reset
+endif
+
+let g:colors_name = "neutral_uncommon_colors"
+
+" Normal text
+hi Normal ctermfg=222 ctermbg=NONE
+
+" Comments
+hi Comment ctermfg=244
+
+" Constants
+hi Constant ctermfg=172
+
+" Strings
+hi String ctermfg=65
+
+" Keywords
+hi Keyword ctermfg=162
+
+" Functions
+hi Function ctermfg=173
+
+" Variables
+hi Identifier ctermfg=117
+
+" Type definitions
+hi Type ctermfg=109
+
+" Preprocessor directives
+hi PreProc ctermfg=81
+
+" Special characters
+hi Special ctermfg=112
+
+" Underlined text
+hi Underlined ctermfg=46
+
+" Error messages
+hi Error ctermfg=231 ctermbg=160
+
+" Warnings
+hi WarningMsg ctermfg=231 ctermbg=124
+
+" Search highlighting
+hi Search ctermfg=16 ctermbg=220
+hi IncSearch ctermfg=16 ctermbg=142
+
+" Line numbers
+hi LineNr ctermfg=245
+
+" Cursor line
+hi CursorLineNr ctermfg=184
+
+" Status line
+hi StatusLine ctermfg=16 ctermbg=228
+hi StatusLineNC ctermfg=16 ctermbg=250
+
+" Visual mode
+hi Visual ctermbg=238
+
+" Diff text
+hi DiffAdd ctermfg=NONE ctermbg=22
+hi DiffChange ctermfg=NONE ctermbg=58
+hi DiffDelete ctermfg=NONE ctermbg=52
+hi DiffText ctermfg=NONE ctermbg=94
+
+"""
+" END THEME
+"""
+
 
 " include machine specific vimrc
 try
