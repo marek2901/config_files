@@ -83,7 +83,6 @@ set synmaxcol=1000
 set autoindent
 set autoread
 set colorcolumn=80
-set cursorline
 set expandtab
 set guicursor=
 set hidden
