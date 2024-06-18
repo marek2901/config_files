@@ -13,53 +13,53 @@ endif
 let g:colors_name = "neutral_contrast"
 
 " Normal text
-hi Normal ctermfg=109 ctermbg=NONE guifg=#87afaf guibg=NONE
+hi Normal ctermfg=145 ctermbg=NONE guifg=#87af87 guibg=NONE
 
 " Comments
 hi Comment ctermfg=102 ctermbg=NONE guifg=#5f5f5f guibg=NONE
 
 " Constants
-hi Constant ctermfg=108 ctermbg=NONE guifg=#87afaf guibg=NONE
+hi Constant ctermfg=144 ctermbg=NONE guifg=#87afaf guibg=NONE
 
 " Strings
-hi String ctermfg=28 ctermbg=NONE guifg=#005f00 guibg=NONE
+hi String ctermfg=65 ctermbg=NONE guifg=#5f875f guibg=NONE
 
 " Keywords
-hi Keyword ctermfg=160 ctermbg=NONE guifg=#d70000 guibg=NONE
+hi Keyword ctermfg=131 ctermbg=NONE guifg=#af5f5f guibg=NONE
 
 " Functions
-hi Function ctermfg=36 ctermbg=NONE guifg=#005f87 guibg=NONE
+hi Function ctermfg=108 ctermbg=NONE guifg=#87afaf guibg=NONE
 
 " Variables
-hi Identifier ctermfg=75 ctermbg=NONE guifg=#5f5f87 guibg=NONE
+hi Identifier ctermfg=144 ctermbg=NONE guifg=#87afaf guibg=NONE
 
 " Type definitions
-hi Type ctermfg=37 ctermbg=NONE guifg=#5f8787 guibg=NONE
+hi Type ctermfg=109 ctermbg=NONE guifg=#5fafaf guibg=NONE
 
 " Preprocessor directives
-hi PreProc ctermfg=33 ctermbg=NONE guifg=#005f87 guibg=NONE
+hi PreProc ctermfg=67 ctermbg=NONE guifg=#5f87af guibg=NONE
 
 " Special characters
-hi Special ctermfg=93 ctermbg=NONE guifg=#875f87 guibg=NONE
+hi Special ctermfg=132 ctermbg=NONE guifg=#af5f87 guibg=NONE
 
 " Underlined text
-hi Underlined ctermfg=45 ctermbg=NONE guifg=#00afaf guibg=NONE
+hi Underlined ctermfg=73 ctermbg=NONE guifg=#5faf87 guibg=NONE
 
 " Error messages
-hi Error ctermfg=231 ctermbg=160 guifg=#ffffff guibg=#d70000
+hi Error ctermfg=231 ctermbg=160 guifg=#ffffff guibg=#d75f5f
 
 " Warnings
-hi WarningMsg ctermfg=231 ctermbg=124 guifg=#ffffff guibg=#ffaf00
+hi WarningMsg ctermfg=231 ctermbg=166 guifg=#ffffff guibg=#d7875f
 
 " Search highlighting
-hi Search ctermfg=16 ctermbg=194 guifg=#000000 guibg=#d7d700
-hi IncSearch ctermfg=16 ctermbg=108 guifg=#000000 guibg=#87ff87
+hi Search ctermfg=16 ctermbg=187 guifg=#000000 guibg=#d7af87
+hi IncSearch ctermfg=16 ctermbg=143 guifg=#000000 guibg=#87af87
 
 " Line numbers
 hi LineNr ctermfg=244 ctermbg=NONE guifg=#808080 guibg=NONE
 
 " Cursor line
-hi CursorLineNr ctermfg=75 ctermbg=234 guifg=#5f5f87 guibg=#303030
+hi CursorLineNr ctermfg=109 ctermbg=234 guifg=#87afaf guibg=#303030
 
 " Status line
 hi StatusLine ctermfg=16 ctermbg=251 guifg=#000000 guibg=#d0d0d0
@@ -69,20 +69,20 @@ hi StatusLineNC ctermfg=16 ctermbg=243 guifg=#000000 guibg=#808080
 hi Visual ctermbg=238 guifg=NONE guibg=#444444
 
 " Diff text
-hi DiffAdd ctermfg=NONE ctermbg=22 guifg=NONE guibg=#005f00
-hi DiffChange ctermfg=NONE ctermbg=58 guifg=NONE guibg=#5f00af
-hi DiffDelete ctermfg=NONE ctermbg=52 guifg=NONE guibg=#5f0000
-hi DiffText ctermfg=NONE ctermbg=94 guifg=NONE guibg=#d70087
+hi DiffAdd ctermfg=NONE ctermbg=65 guifg=NONE guibg=#5f875f
+hi DiffChange ctermfg=NONE ctermbg=67 guifg=NONE guibg=#5f87af
+hi DiffDelete ctermfg=NONE ctermbg=131 guifg=NONE guibg=#af5f5f
+hi DiffText ctermfg=NONE ctermbg=132 guifg=NONE guibg=#af5f87
 
 " NERDTree
-hi NERDTreeDir ctermfg=109 ctermbg=NONE guifg=#87afaf guibg=NONE
-hi NERDTreeDirSlash ctermfg=109 ctermbg=NONE guifg=#87afaf guibg=NONE
-hi NERDTreeOpenable ctermfg=160 ctermbg=NONE guifg=#d70000 guibg=NONE
-hi NERDTreeClosable ctermfg=160 ctermbg=NONE guifg=#d70000 guibg=NONE
-hi NERDTreeFile ctermfg=109 ctermbg=NONE guifg=#87afaf guibg=NONE
-hi NERDTreeExecFile ctermfg=28 ctermbg=NONE guifg=#005f00 guibg=NONE
-hi NERDTreeUp ctermfg=109 ctermbg=NONE guifg=#87afaf guibg=NONE
-hi NERDTreeCWD ctermfg=37 ctermbg=NONE guifg=#5f8787 guibg=NONE
+hi NERDTreeDir ctermfg=145 ctermbg=NONE guifg=#87af87 guibg=NONE
+hi NERDTreeDirSlash ctermfg=145 ctermbg=NONE guifg=#87af87 guibg=NONE
+hi NERDTreeOpenable ctermfg=131 ctermbg=NONE guifg=#af5f5f guibg=NONE
+hi NERDTreeClosable ctermfg=131 ctermbg=NONE guifg=#af5f5f guibg=NONE
+hi NERDTreeFile ctermfg=145 ctermbg=NONE guifg=#87af87 guibg=NONE
+hi NERDTreeExecFile ctermfg=65 ctermbg=NONE guifg=#5f875f guibg=NONE
+hi NERDTreeUp ctermfg=145 ctermbg=NONE guifg=#87af87 guibg=NONE
+hi NERDTreeCWD ctermfg=109 ctermbg=NONE guifg=#5fafaf guibg=NONE
 hi NERDTreeHelp ctermfg=102 ctermbg=NONE guifg=#5f5f5f guibg=NONE
-hi NERDTreeToggleOn ctermfg=28 ctermbg=NONE guifg=#005f00 guibg=NONE
-hi NERDTreeToggleOff ctermfg=160 ctermbg=NONE guifg=#d70000 guibg=NONE
+hi NERDTreeToggleOn ctermfg=65 ctermbg=NONE guifg=#5f875f guibg=NONE
+hi NERDTreeToggleOff ctermfg=131 ctermbg=NONE guifg=#af5f5f guibg=NONE
