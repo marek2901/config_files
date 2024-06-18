@@ -60,7 +60,6 @@ call plug#begin()
 
   " Syntax colors
   Plug 'arcticicestudio/nord-vim'
-  Plug 'tomasr/molokai'
 call plug#end()
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
@@ -69,12 +68,12 @@ if (has("termguicolors"))
   set termguicolors
 end
 
+colorscheme neutral_contrast
+
 filetype plugin indent on
 syntax enable
 
-set background=dark
 let g:enable_italic_font=1
-colorscheme molokai
 
 highlight clear SignColumn
 highlight CursorLineNr ctermfg=white guifg=white

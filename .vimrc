@@ -149,40 +149,38 @@ if exists("syntax_on")
   syntax reset
 endif
 
-let g:colors_name = "neutral_uncommon_colors"
-
 " Normal text
-hi Normal ctermfg=222 ctermbg=NONE
+hi Normal ctermfg=240 ctermbg=NONE
 
 " Comments
-hi Comment ctermfg=244
+hi Comment ctermfg=102 ctermbg=NONE
 
 " Constants
-hi Constant ctermfg=172
+hi Constant ctermfg=108 ctermbg=NONE
 
 " Strings
-hi String ctermfg=65
+hi String ctermfg=65 ctermbg=NONE
 
 " Keywords
-hi Keyword ctermfg=162
+hi Keyword ctermfg=162 ctermbg=NONE
 
 " Functions
-hi Function ctermfg=173
+hi Function ctermfg=37 ctermbg=NONE
 
 " Variables
-hi Identifier ctermfg=117
+hi Identifier ctermfg=75 ctermbg=NONE
 
 " Type definitions
-hi Type ctermfg=109
+hi Type ctermfg=109 ctermbg=NONE
 
 " Preprocessor directives
-hi PreProc ctermfg=81
+hi PreProc ctermfg=33 ctermbg=NONE
 
 " Special characters
-hi Special ctermfg=112
+hi Special ctermfg=93 ctermbg=NONE
 
 " Underlined text
-hi Underlined ctermfg=46
+hi Underlined ctermfg=45 ctermbg=NONE
 
 " Error messages
 hi Error ctermfg=231 ctermbg=160
@@ -191,18 +189,18 @@ hi Error ctermfg=231 ctermbg=160
 hi WarningMsg ctermfg=231 ctermbg=124
 
 " Search highlighting
-hi Search ctermfg=16 ctermbg=220
-hi IncSearch ctermfg=16 ctermbg=142
+hi Search ctermfg=16 ctermbg=194
+hi IncSearch ctermfg=16 ctermbg=108
 
 " Line numbers
-hi LineNr ctermfg=245
+hi LineNr ctermfg=240 ctermbg=NONE
 
 " Cursor line
-hi CursorLineNr ctermfg=184
+hi CursorLineNr ctermfg=75 ctermbg=234
 
 " Status line
-hi StatusLine ctermfg=16 ctermbg=228
-hi StatusLineNC ctermfg=16 ctermbg=250
+hi StatusLine ctermfg=16 ctermbg=251
+hi StatusLineNC ctermfg=16 ctermbg=243
 
 " Visual mode
 hi Visual ctermbg=238
