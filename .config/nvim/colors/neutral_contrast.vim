@@ -13,7 +13,7 @@ endif
 let g:colors_name = "neutral_contrast"
 
 " Normal text
-hi Normal ctermfg=240 ctermbg=NONE guibg=NONE
+hi Normal ctermfg=68 ctermbg=NONE guibg=NONE
 
 " Comments
 hi Comment ctermfg=102 ctermbg=NONE guibg=NONE
@@ -56,7 +56,7 @@ hi Search ctermfg=16 ctermbg=194 guibg=#d7d700
 hi IncSearch ctermfg=16 ctermbg=108 guibg=#87ff87
 
 " Line numbers
-hi LineNr ctermfg=240 ctermbg=NONE guibg=NONE
+hi LineNr ctermfg=68 ctermbg=NONE guibg=NONE
 
 " Cursor line
 hi CursorLineNr ctermfg=75 ctermbg=234 guibg=#303030

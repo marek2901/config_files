@@ -150,7 +150,7 @@ if exists("syntax_on")
 endif
 
 " Normal text
-hi Normal ctermfg=240 ctermbg=NONE
+hi Normal ctermfg=68 ctermbg=NONE
 
 " Comments
 hi Comment ctermfg=102 ctermbg=NONE
