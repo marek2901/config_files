@@ -1,10 +1,30 @@
 function! ToggleAndSaveBackground()
-  if &background == "dark"
-    set background=light
-  else
-    set background=dark
-  endif
   let l:bgfile = expand('~/.vim_background')
+
+  " Check if the background file exists and is readable
+  if filereadable(l:bgfile)
+    let l:saved_bg = readfile(l:bgfile)[0]
+
+    " Call LoadSavedBackground if the saved value is different from the current value
+    if l:saved_bg != &background
+      call LoadSavedBackground()
+    else
+      if &background == "dark"
+        set background=light
+      else
+        set background=dark
+      endif
+    endif
+  else
+    " Toggle the background if the file does not exist or is not readable
+    if &background == "dark"
+      set background=light
+    else
+      set background=dark
+    endif
+  endif
+
+  " Save the new background value to the file
   call writefile([&background], l:bgfile)
 endfunction
 
