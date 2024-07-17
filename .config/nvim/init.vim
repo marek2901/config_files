@@ -61,7 +61,7 @@ call plug#begin()
   " Syntax colors
   Plug 'arcticicestudio/nord-vim'
   Plug 'vimpostor/vim-lumen'
-  Plug 'sonph/onehalf'
+  Plug 'morhetz/gruvbox'
 call plug#end()
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
@@ -70,11 +70,10 @@ if (has("termguicolors"))
   set termguicolors
 end
 
+colorscheme gruvbox
+
 filetype plugin indent on
 syntax enable
-
-let g:lumen_preferred_light_scheme = 'onehalflight'
-let g:lumen_preferred_dark_scheme = 'onehalfdark'
 
 let g:enable_italic_font=1
 
