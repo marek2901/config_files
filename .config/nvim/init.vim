@@ -60,7 +60,6 @@ call plug#begin()
 
   " Syntax colors
   Plug 'arcticicestudio/nord-vim'
-  Plug 'vimpostor/vim-lumen'
   Plug 'morhetz/gruvbox'
 call plug#end()
 
