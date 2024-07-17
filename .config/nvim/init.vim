@@ -59,7 +59,7 @@ call plug#begin()
   Plug 'dan-t/vim-lvimrc'
 
   " Syntax colors
-  Plug 'NLKNguyen/papercolor-theme'
+  Plug 'morhetz/gruvbox'
 call plug#end()
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
@@ -68,7 +68,7 @@ if (has("termguicolors"))
   set termguicolors
 end
 
-colorscheme PaperColor
+colorscheme gruvbox
 
 
 filetype plugin indent on

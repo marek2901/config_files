@@ -23,6 +23,7 @@ function! ToggleAndSaveBackground()
       set background=dark
     endif
   endif
+  highlight Normal guibg=NONE ctermbg=NONE
 
   " Save the new background value to the file
   call writefile([&background], l:bgfile)
@@ -42,10 +43,6 @@ endfunction
 
 autocmd BufEnter * call LoadSavedBackground()
 
-let g:PaperColor_Theme_Options = {
-  \   'theme': {
-  \     'default': {
-  \       'transparent_background': 1
-  \     }
-  \   }
-  \ }
+let g:gruvbox_transparent_bg = 1
+autocmd VimEnter * hi Normal ctermbg=NONE guibg=NONE
+highlight Normal guibg=NONE ctermbg=NONE
