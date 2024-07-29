@@ -42,7 +42,7 @@ function! LoadSavedBackground()
 endfunction
 
 autocmd BufEnter * call LoadSavedBackground()
+autocmd BufEnter * hi Normal ctermbg=NONE guibg=NONE
 
 let g:gruvbox_transparent_bg = 1
-autocmd VimEnter * hi Normal ctermbg=NONE guibg=NONE
 highlight Normal guibg=NONE ctermbg=NONE
