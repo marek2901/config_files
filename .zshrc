@@ -51,7 +51,7 @@ then
   FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
   autoload -Uz compinit
-  compinit
+  compinit &> /dev/null
 fi
 
 if [[ -d ~/.zsh-completions ]]; then
