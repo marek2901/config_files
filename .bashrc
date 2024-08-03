@@ -38,10 +38,10 @@ if tput colors &> /dev/null; then
     then
     UC="${RED}"
     else
-    UC="${BWHITE}"
+    UC="${BBLUE}"
     fi
     HC="${BYELLOW}"
-    RC="${BWHITE}"
+    RC="${BBLUE}"
     DF='\[\e[0m\]'
     PS1="[${UC}\u${RC}@${HC}\h ${RC}\W${DF}] ${SC}${DF} "
   }
