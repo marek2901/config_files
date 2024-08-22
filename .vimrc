@@ -52,7 +52,7 @@ if has("gui_running")
     set guitablabel=%M\ %t
 else
     set t_RV=
-    set t_Co=8
+    set t_Co=1
 endif
 
 " Set utf8 as standard encoding and en_US as the standard language
