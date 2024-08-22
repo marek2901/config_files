@@ -53,6 +53,9 @@ if has("gui_running")
 else
     set t_RV=
     set t_Co=1
+    if has('nvim')
+      set notermguicolors
+    endif
 endif
 
 " Set utf8 as standard encoding and en_US as the standard language
