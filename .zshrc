@@ -42,7 +42,7 @@ alias g='G '
 ########## ZIM FRAMEWORK END
 
 ########## GENERIC ALIASES
-alias reload-shell=". ~/.zshrc"
+alias reload-shell="exec zsh"
 ########## GENERIC ALIASES END
 
 ########## WORKAROUNDS

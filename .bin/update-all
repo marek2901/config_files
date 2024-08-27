@@ -109,6 +109,11 @@ main() {
   if which nvim &> /dev/null; then
     nvim +PlugUpgrade +PlugUpdate +CocUpdateSync +qall
   fi
+
+  # bob nvim manager
+  if which bob &> /dev/null && bob --version | grep -q bob-nvim; then
+    bob update
+  fi
 }
 
 self_update
