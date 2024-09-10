@@ -38,6 +38,12 @@ main() {
       sudo apt autoremove
     fi
 
+    # yes, there is a homebrew on linux now too
+    # and it has some packages apt does not (or has ancient versions)
+    if which brew &> /dev/null && brew --version &> /dev/null; then
+      brew update && brew upgrade && brew cleanup
+    fi
+
     ### yum or dnf
     if which dnf &> /dev/null && dnf --version &> /dev/null; then
       sudo dnf upgrade -y
