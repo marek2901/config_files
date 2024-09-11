@@ -72,6 +72,10 @@ if [[ "$OSTYPE" == "darwin"* ]] && test -d "/usr/local/sbin"; then
   export PATH="/usr/local/sbin:$PATH"
 fi
 
+### linuxbrew
+test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
+test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
 ### I wanna copy paste in mitmproxy plz
 if which mitmproxy &> /dev/null; then
   alias mitmproxy="mitmproxy --set console_mouse=false "
