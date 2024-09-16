@@ -7,6 +7,9 @@ set history=700
 " Do not pretend to be vi compatible
 set nocompatible
 
+" Disable mouse integration
+set mouse=
+
 " Enable filetype plugins
 filetype plugin on
 filetype indent on
