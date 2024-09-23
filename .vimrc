@@ -54,10 +54,12 @@ if has("gui_running")
     set t_Co=256
     set guitablabel=%M\ %t
 else
-    set t_RV=
-    set t_Co=1
     if has('nvim')
       set notermguicolors
+    else
+      set t_RV=
+      set t_Co=1
+      highlight LineNr term=NONE cterm=NONE ctermfg=NONE
     endif
 endif
 
