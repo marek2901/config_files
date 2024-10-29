@@ -63,6 +63,7 @@ call plug#begin()
 
   " bring the power of ai
   Plug 'TabbyML/vim-tabby'
+  Plug 'github/copilot.vim'
 call plug#end()
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
