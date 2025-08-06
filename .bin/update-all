@@ -51,6 +51,14 @@ main() {
       sudo yum update -y
     fi
 
+    ### pacman and yay
+    if which pacman &> /dev/null && pacman --version &> /dev/null; then
+      sudo pacman -Syu --noconfirm
+    fi
+    if which yay &> /dev/null && yay --version &> /dev/null; then
+      yay -Syu --noconfirm
+    fi
+
     ### snap
     if grep -qi Microsoft /proc/version; then
       echo "Not running snap refresh in wsl"
