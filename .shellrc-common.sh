@@ -96,6 +96,11 @@ fi
 if test -d "$HOME/.local-bin"; then
   export PATH="$PATH:$HOME/.local-bin"
 fi
+
+### LMStudio
+if test -d "$HOME/.lmstudio/bin"; then
+  export PATH="$PATH:$HOME/.lmstudio/bin"
+fi
 ########## WORKAROUNDS END
 
 # FUNCTIONS
@@ -238,6 +243,7 @@ fi
 ### go GoEnv
 if [[ -d  "$HOME/.goenv" ]]; then
     export GOENV_ROOT="$HOME/.goenv"
+    export GOENV_PATH_ORDER=front
     [[ -d "$GOENV_ROOT/bin" ]] &&
       export PATH="$GOENV_ROOT/bin:$PATH"
 fi
