@@ -3,7 +3,9 @@ alias ll='ls -lF'
 alias la='ls -A'
 alias l='ls -CF'
 # override ll with exa if it exists
-if which exa &> /dev/null; then
+if which eza &> /dev/null; then
+  alias ll='eza --colour=always --long --header'
+elif which exa &> /dev/null; then
   alias ll='exa --colour=always --long --header'
 fi
 
@@ -230,6 +232,17 @@ if [[ -s "$HOME/.pyenv/plugins/pyenv-virtualenv/bin/pyenv-virtualenv-init" ]] ||
     eval "$(pyenv virtualenv-init -)"
 fi
 ###
+
+### uv / uvx
+if which uv &> /dev/null; then
+  # uvx is bundled with uv — no extra setup needed
+  # optional: shell completions (zsh/bash auto-detected)
+  if [[ -n "$ZSH_VERSION" ]]; then
+    eval "$(uv generate-shell-completion zsh 2>/dev/null)"
+  elif [[ -n "$BASH_VERSION" ]]; then
+    eval "$(uv generate-shell-completion bash 2>/dev/null)"
+  fi
+fi
 
 ### nodejs NodEnv
 if [[ -d  "$HOME/.nodenv/bin" ]]; then
