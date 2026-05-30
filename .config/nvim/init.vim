@@ -62,9 +62,37 @@ call plug#begin()
   Plug 'morhetz/gruvbox'
 
   " bring the power of ai
-  Plug 'TabbyML/vim-tabby'
-  Plug 'github/copilot.vim'
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  Plug 'olimorris/codecompanion.nvim'
 call plug#end()
+
+" ---- CodeCompanion config (lua block inside vimscript) ----
+
+lua << EOF
+require("codecompanion").setup({
+  interactions = {
+    chat = { adapter = "lmstudio" },
+    inline = { adapter = "lmstudio" },
+    cmd = { adapter = "lmstudio" },
+  },
+  adapters = {
+    http = {
+      lmstudio = function()
+        return require("codecompanion.adapters").extend("openai_compatible", {
+          env = {
+            url = "http://localhost:1234",
+          },
+        })
+      end,
+    },
+  },
+})
+
+vim.keymap.set({"n", "v"}, "<leader>ac", "<cmd>CodeCompanionChat Toggle<cr>", { desc = "Open CodeCompanion Chat" })
+vim.keymap.set("n", "<leader>ai", "<cmd>CodeCompanion<cr>", { desc = "Inline CodeCompanion" })
+vim.keymap.set("n", "<leader>aa", "<cmd>CodeCompanionActions<cr>", { desc = "CodeCompanion Actions" })
+EOF
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
