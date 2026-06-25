@@ -28,7 +28,7 @@ main() {
       if brew outdated -q | grep -E "^python$" &> /dev/null; then
         TRIGGER_PIPX_REINSTALL="true"
       fi
-      brew upgrade && brew upgrade --cask && brew cleanup && brew doctor
+      yes | brew upgrade && yes | brew upgrade --cask && brew cleanup -s && brew doctor
     fi
   elif [[ "$OSTYPE" == "linux-gnu" ]]; then
     ### apt get
@@ -41,7 +41,7 @@ main() {
     # yes, there is a homebrew on linux now too
     # and it has some packages apt does not (or has ancient versions)
     if which brew &> /dev/null && brew --version &> /dev/null; then
-      brew update && brew upgrade && brew cleanup
+      brew update && yes | brew upgrade && brew cleanup -s
     fi
 
     ### yum or dnf
