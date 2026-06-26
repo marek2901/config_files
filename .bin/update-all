@@ -111,7 +111,7 @@ main() {
 
   ### uv
   if which uv &> /dev/null && uv --version &> /dev/null; then
-    uv tools upgrade
+    uv tool upgrade --all
   fi
 
   ### ZimFramework
