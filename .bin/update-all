@@ -109,6 +109,11 @@ main() {
     pipx upgrade-all
   fi
 
+  ### uv
+  if which uv &> /dev/null && uv --version &> /dev/null; then
+    uv tools upgrade
+  fi
+
   ### ZimFramework
   if [[ -d "$HOME/.zim" ]]; then
     zsh -c "source \"$HOME/.zim/zimfw.zsh\" upgrade" || true
