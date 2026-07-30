@@ -69,6 +69,9 @@ if test -s "$HOME/.bashrc.local"; then
 fi
 ########## LOCAL OVERRIDES END
 
+# mise shims — work in non-interactive shells without activate
+[ -d "$HOME/.local/share/mise/shims" ] && export PATH="$HOME/.local/share/mise/shims:$PATH"
+
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # Generated for envman. Do not edit.
