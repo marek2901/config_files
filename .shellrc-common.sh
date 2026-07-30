@@ -99,12 +99,6 @@ if test -d "$HOME/.local-bin"; then
   export PATH="$PATH:$HOME/.local-bin"
 fi
 
-### LMStudio
-if test -d "$HOME/.lmstudio/bin"; then
-  export PATH="$PATH:$HOME/.lmstudio/bin"
-fi
-########## WORKAROUNDS END
-
 # FUNCTIONS
 if which ag &> /dev/null; then
   agr() { ag -0 -l "$1" | xargs -0 sed -i '' -e "s/$1/$2/g"; }
@@ -185,6 +179,12 @@ f() {
 fi
 ####### FUNCTIONS END
 
+### LM Studio CLI tool
+if [[ -d "$HOME/.lmstudio/bin" ]]; then
+  export PATH="$PATH:$HOME/.lmstudio/bin"
+fi
+###
+
 ### podman alias (only if there is no docker aside)
 if which podman &> /dev/null && ! which docker &> /dev/null; then
   alias docker=podman
@@ -195,9 +195,9 @@ if which podman-compose &> /dev/null && ! which docker-compose &> /dev/null; the
   alias docker-compose=podman-compose
 fi
 
-### KIEX
-if test -s "$HOME/.kiex/scripts/kiex"; then
-    source "$HOME/.kiex/scripts/kiex"
+### mise (replaces rbenv, pyenv, nodenv, goenv, phpenv, sdkman, kiex)
+if command -v mise &> /dev/null; then
+  eval "$(mise activate bash)" 2>/dev/null || eval "$(mise activate zsh)" 2>/dev/null
 fi
 ###
 
@@ -207,75 +207,12 @@ if test -s "$HOME/.cargo/env"; then
 fi
 ###
 
-### ruby Rbenv
-if [[ -d  "$HOME/.rbenv/bin" ]]; then
-    export PATH="$HOME/.rbenv/bin:$PATH"
-fi
-if which rbenv &> /dev/null; then
-  eval "$(rbenv init -)";
-fi
-###
-
-### python PyEnv
-if [[ -d  "$HOME/.pyenv" ]]; then
-    export PYENV_ROOT="$HOME/.pyenv"
-fi
-if [[ -d  "$HOME/.pyenv/bin" ]]; then
-    export PATH="$HOME/.pyenv/bin:$PATH"
-fi
-if which pyenv &> /dev/null; then
-    eval "$(pyenv init --path)"
-    eval "$(pyenv init - --no-rehash)"
-fi
-if [[ -s "$HOME/.pyenv/plugins/pyenv-virtualenv/bin/pyenv-virtualenv-init" ]] ||
-    which pyenv-virtualenv-init &> /dev/null; then
-    eval "$(pyenv virtualenv-init -)"
-fi
-###
-
 ### uv / uvx
 if which uv &> /dev/null; then
-  # uvx is bundled with uv — no extra setup needed
-  # optional: shell completions (zsh/bash auto-detected)
   if [[ -n "$ZSH_VERSION" ]]; then
     eval "$(uv generate-shell-completion zsh 2>/dev/null)"
   elif [[ -n "$BASH_VERSION" ]]; then
     eval "$(uv generate-shell-completion bash 2>/dev/null)"
   fi
-fi
-
-### nodejs NodEnv
-if [[ -d  "$HOME/.nodenv/bin" ]]; then
-    export PATH="$HOME/.nodenv/bin:$PATH"
-fi
-if which nodenv &> /dev/null; then
-  eval "$(nodenv init -)";
-fi
-####
-
-### go GoEnv
-if [[ -d  "$HOME/.goenv" ]]; then
-    export GOENV_ROOT="$HOME/.goenv"
-    export GOENV_PATH_ORDER=front
-    [[ -d "$GOENV_ROOT/bin" ]] &&
-      export PATH="$GOENV_ROOT/bin:$PATH"
-fi
-if which goenv &> /dev/null; then
-    eval "$(goenv init -)"
-fi
-###
-
-### java sdkman
-if [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]]; then
-  export SDKMAN_DIR="$HOME/.sdkman"
-  source "$HOME/.sdkman/bin/sdkman-init.sh"
-fi
-
-### PHP phpenv
-if [[ -d  "$HOME/.phpenv/bin" ]]; then
-    export PATH="$HOME/.phpenv/bin:$PATH"
-fi
-if which phpenv &> /dev/null; then
-  eval "$(phpenv init -)";
 fi
 ###
