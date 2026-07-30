@@ -197,7 +197,11 @@ fi
 
 ### mise (replaces rbenv, pyenv, nodenv, goenv, phpenv, sdkman, kiex)
 if command -v mise &> /dev/null; then
-  eval "$(mise activate bash)" 2>/dev/null || eval "$(mise activate zsh)" 2>/dev/null
+  if [[ -n "$ZSH_VERSION" ]]; then
+    eval "$(mise activate zsh)"
+  elif [[ -n "$BASH_VERSION" ]]; then
+    eval "$(mise activate bash)"
+  fi
 fi
 ###
 
