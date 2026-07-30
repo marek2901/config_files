@@ -1,0 +1,10 @@
+[tools]
+node = "lts"
+"npm:little-coder" = "latest"
+"npm:pnpm" = "latest"
+python = "3.13.14"
+ruby = "3.3.12"
+
+[settings]
+activate_aggressive = true
+idiomatic_version_file_enable_tools = ["node", "python", "ruby", "go", "java", "php", "elixir"]

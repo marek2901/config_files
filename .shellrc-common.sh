@@ -195,10 +195,6 @@ if which podman-compose &> /dev/null && ! which docker-compose &> /dev/null; the
   alias docker-compose=podman-compose
 fi
 
-### mise (replaces rbenv, pyenv, nodenv, goenv, phpenv, sdkman, kiex)
-# shims in .zshenv/.bashrc handle tool resolution — no activate hook needed
-###
-
 ### Rustup
 if test -s "$HOME/.cargo/env"; then
   source "$HOME/.cargo/env"
@@ -211,6 +207,16 @@ if which uv &> /dev/null; then
     eval "$(uv generate-shell-completion zsh 2>/dev/null)"
   elif [[ -n "$BASH_VERSION" ]]; then
     eval "$(uv generate-shell-completion bash 2>/dev/null)"
+  fi
+fi
+###
+
+### mise — activate at end so mise always tops brew/other PATH mods
+if command -v mise &> /dev/null; then
+  if [[ -n "$ZSH_VERSION" ]]; then
+    eval "$(mise activate zsh)"
+  elif [[ -n "$BASH_VERSION" ]]; then
+    eval "$(mise activate bash)"
   fi
 fi
 ###
