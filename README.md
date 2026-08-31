@@ -1,3 +1,5 @@
+[![committers.top badge](https://user-badge.committers.top/malta_private/marek2901.svg)](https://user-badge.committers.top/malta_private/marek2901)
+
 # YADM config files
 
 ### [YADM](https://thelocehiliosan.github.io/yadm)
