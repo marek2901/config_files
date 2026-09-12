@@ -1,8 +1,26 @@
 return {
-  "carlos-algms/agentic.nvim",
-  --- @type agentic.PartialUserConfig
-  opts = {
-    provider = "claude-agent-acp",
+  {
+    "carlos-algms/agentic.nvim",
+    init = function()
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = { "AgenticChat", "AgenticInput", "AgenticCode", "AgenticFiles", "AgenticTodos", "AgenticDiagnostics" },
+        callback = function(args)
+          vim.keymap.set({ "n", "i" }, "<C-c>", function() require("agentic").stop_generation() end, {
+            buffer = args.buf,
+            desc = "Stop Agentic generation",
+          })
+        end,
+      })
+    end,
+    --- @type agentic.PartialUserConfig
+    opts = {
+      provider = "claude-agent-acp",
+      file_picker = {
+        auto_trigger = false,
+      },
+      slash_commands = {
+        auto_trigger = false,
+      },
     acp_providers = {
       ["claude-agent-acp"] = {
         command = "claude-agent-acp",
@@ -19,7 +37,7 @@ return {
     {
       "<leader>at",
       function() require("agentic").toggle() end,
-      mode = { "n", "v", "i" },
+      mode = { "n", "v" },
       desc = "Toggle Agentic Chat",
     },
     {
@@ -31,7 +49,7 @@ return {
     {
       "<leader>an",
       function() require("agentic").new_session() end,
-      mode = { "n", "v", "i" },
+      mode = { "n", "v" },
       desc = "New Agentic Session",
     },
     {
@@ -39,7 +57,7 @@ return {
       function() require("agentic").restore_session() end,
       desc = "Restore Agentic Session",
       silent = true,
-      mode = { "n", "v", "i" },
+      mode = { "n", "v" },
     },
     {
       "<leader>ad",
@@ -53,5 +71,21 @@ return {
       desc = "Add buffer diagnostics to Agentic",
       mode = { "n" },
     },
+  },
+  },
+  {
+    "saghen/blink.cmp",
+    opts = function(_, opts)
+      local prev = opts.enabled
+      opts.enabled = function()
+        if vim.bo.filetype == "AgenticInput" then
+          return false
+        end
+        if type(prev) == "function" then
+          return prev()
+        end
+        return true
+      end
+    end,
   },
 }
