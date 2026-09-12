@@ -211,6 +211,12 @@ if which uv &> /dev/null; then
 fi
 ###
 
+### pnpm global binaries
+if test -d "$HOME/.local/share/pnpm/bin"; then
+  export PATH="$HOME/.local/share/pnpm/bin:$PATH"
+fi
+###
+
 ### mise — activate at end so mise always tops brew/other PATH mods
 if command -v mise &> /dev/null; then
   if [[ -n "$ZSH_VERSION" ]]; then
