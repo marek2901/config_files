@@ -1,15 +1,15 @@
 return {
   {
     "LazyVim/LazyVim",
-    opts = { colorscheme = "tokyonight-day" },
+    opts = { colorscheme = "catppuccin-latte" },
   },
   {
-    "folke/tokyonight.nvim",
+    "catppuccin/nvim",
     keys = {
       {
         "<leader>ut",
         function()
-          vim.cmd.colorscheme(vim.g.colors_name == "tokyonight-day" and "tokyonight-night" or "tokyonight-day")
+          vim.cmd.colorscheme(vim.g.colors_name == "catppuccin-latte" and "catppuccin-mocha" or "catppuccin-latte")
         end,
         desc = "Toggle Day/Night Theme",
       },
