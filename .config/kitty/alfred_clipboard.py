@@ -30,7 +30,7 @@ def get_recent_entries(limit=15):
     return []
 
 def main(args):
-    entries = get_recent_entries(15)
+    entries = get_recent_entries(20)
     if not entries:
         return "No entries found in Alfred clipboard."
 
@@ -52,6 +52,7 @@ def main(args):
                 FZF_BIN,
                 "--prompt=Alfred Clipboard > ",
                 "--height=60%",
+                "--wrap",
                 "--reverse",
                 "--delimiter=\t",
                 "--with-nth=2..",
