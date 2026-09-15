@@ -52,7 +52,7 @@ def main(args):
                 FZF_BIN,
                 "--prompt=Alfred Clipboard > ",
                 "--height=60%",
-                "--wrap",
+                "--cycle",
                 "--reverse",
                 "--delimiter=\t",
                 "--with-nth=2..",
