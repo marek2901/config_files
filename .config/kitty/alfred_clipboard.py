@@ -7,8 +7,11 @@ DB_PATH = os.path.expanduser(
 )
 SQLITE_BIN = "/usr/bin/sqlite3" if os.path.exists("/usr/bin/sqlite3") else "sqlite3"
 FZF_BIN = "/opt/homebrew/bin/fzf" if os.path.exists("/opt/homebrew/bin/fzf") else "/usr/local/bin/fzf"
+# Single source of truth: main() and handle_result() must use the same limit,
+# otherwise an entry selected at index >= limit silently fails to paste.
+LIMIT = 20
 
-def get_recent_entries(limit=15):
+def get_recent_entries(limit=LIMIT):
     """Fetches the last N items from Alfred's SQLite DB as raw strings."""
     if not os.path.exists(DB_PATH):
         return []
@@ -30,7 +33,7 @@ def get_recent_entries(limit=15):
     return []
 
 def main(args):
-    entries = get_recent_entries(20)
+    entries = get_recent_entries(LIMIT)
     if not entries:
         return "No entries found in Alfred clipboard."
 
@@ -65,7 +68,7 @@ def main(args):
         )
         selected, _ = fzf_proc.communicate(input=fzf_input)
         if selected.strip():
-            idx_str = selected.split("\t")[0]
+            idx_str = selected.strip().split("\t", 1)[0].strip()
             return idx_str
     except FileNotFoundError:
         return f"Error: fzf binary not found at {FZF_BIN}."
@@ -73,12 +76,38 @@ def main(args):
     return ""
 
 def handle_result(args, result, target_window_id, boss):
-    if result and result.isdigit():
-        idx = int(result)
-        entries = get_recent_entries(15)
-        if 0 <= idx < len(entries):
-            full_text = entries[idx]
-            window = boss.window_id_map.get(target_window_id)
-            if window:
-                bracketed_paste = f"\x1b[200~{full_text}\x1b[201~"
-                window.write_to_child(bracketed_paste)
+    if not result:
+        return
+    idx_str = result.strip()
+    if not idx_str.isdigit():
+        return
+    idx = int(idx_str)
+    entries = get_recent_entries(LIMIT)
+    if not (0 <= idx < len(entries)):
+        return
+    full_text = entries[idx]
+    window = boss.window_id_map.get(target_window_id)
+    if not window:
+        return
+    # paste_text() lets kitty signal a proper bracketed paste so the
+    # receiving program treats the text literally. This matters for
+    # postgresql URLs / passwords containing shell metachars like
+    # & ? $ ! ` " ' \ ( ) ; | < > * which write_to_child() + manual
+    # \x1b[200~ markers does not reliably protect.
+    try:
+        if hasattr(window, "paste_text"):
+            window.paste_text(full_text)
+            return
+    except Exception:
+        pass
+    # Fallback: raw write without manual bracket markers. Manual
+    # \x1b[200~/\x1b[201~ wrapping breaks when the app hasn't enabled
+    # bracketed-paste mode or when the text itself contains escapes.
+    try:
+        if hasattr(window, "write_to_child"):
+            window.write_to_child(full_text.encode("utf-8"))
+    except Exception:
+        try:
+            window.write_to_child(full_text)
+        except Exception:
+            pass
